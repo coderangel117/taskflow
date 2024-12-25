@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Table des utilisateurs
+model User {
+  id        Int   @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  tasks     Task[]
+  events    Event[]
+  themes    Theme[]
+  preferences Preference?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Table des tags
+model Tag {
+  id        Int   @id @default(autoincrement())
+  name        String   @unique
+  tasks       Task[]   @relation("TaskTags")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Table des tâches
+model Task {
+  id        Int   @id @default(autoincrement())
+  title       String
+  description String?
+  section     Section
+  status      TaskStatus @default(pending)
+  dueDate     DateTime?
+  isCompleted Boolean?  @default(false)
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  tags        Tag[]    @relation("TaskTags")
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  Event Event[]
+}
+
+// Enum pour les sections de la matrice Eisenhower
+enum Section {
+  UrgentImportant
+  UrgentNonImportant
+  NonUrgentImportant
+  NonUrgentNonImportant
+}
+
+// Enum pour le statut des tâches
+enum TaskStatus {
+  pending
+  completed
+  archived
+}
+
+// Table des événements (pour l'affichage dans le calendrier)
+model Event {
+  id        Int   @id @default(autoincrement())
+  title     String
+  startDate DateTime
+  endDate   DateTime?
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  taskId    Int?  @unique
+  task      Task?    @relation(fields: [taskId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Table des thèmes personnalisés
+model Theme {
+  id        Int   @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  themeName   String
+  primaryColor String
+  secondaryColor String
+  backgroundColor String
+  font        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Table des préférences utilisateur
+model Preference {
+  id        Int   @id @default(autoincrement())
+  userId           Int @unique
+  user             User     @relation(fields: [userId], references: [id])
+  showClock        Boolean  @default(true)
+  defaultView      ViewType @default(matrix)
+  notificationsEnabled Boolean @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+// Enum pour les types de vue préférée par l'utilisateur
+enum ViewType {
+  matrix
+  kanban
+}
