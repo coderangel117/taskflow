@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class UserService {
   }
 
   getUserById(id: number) {
-    return this.prisma.user.findUnique({
+    const user = this.prisma.user.findUnique({
       where: { id },
       select: {
         id: true,
@@ -26,6 +26,13 @@ export class UserService {
         updatedAt: true,
       },
     });
+    if (!user) {
+      return {
+        statusCode: HttpStatus.NOT_FOUND,
+        message: 'User not found',
+      };
+    }
+    return user;
   }
 
   async updateUser(id: number) {
