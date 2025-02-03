@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Section, TaskStatus } from '@prisma/client';
 
@@ -31,7 +31,7 @@ export class TaskService {
   }
 
   async getTaskById(id: number) {
-    return this.prisma.task.findUnique({
+    const task = this.prisma.task.findUnique({
       where: { id },
       select: {
         id: true,
@@ -53,6 +53,13 @@ export class TaskService {
         },
       },
     });
+    if (!task) {
+      return {
+        statusCode: HttpStatus.NOT_FOUND,
+        message: 'Task not found',
+      };
+    }
+    return task;
   }
 
   async updateTask(id: number) {
@@ -83,6 +90,21 @@ export class TaskService {
         tags: data.tags ? { connect: data.tags } : undefined,
       },
     });
+  }
+
+  async findByUser(userId: number) {
+    const user = this.prisma.task.findMany({
+      where: {
+        userId,
+      },
+    });
+    if (!user) {
+      return {
+        statusCode: HttpStatus.NOT_FOUND,
+        message: 'User not found',
+      };
+    }
+    return user;
   }
 
   async deleteTask(id: number) {

@@ -44,6 +44,11 @@ export class TaskController {
     return this.taskService.create(data);
   }
 
+  @Get('/user/:userId')
+  async findByUser(@Param('userId') userId: string) {
+    return this.taskService.findByUser(Number(userId));
+  }
+
   @Delete('/:id')
   async deleteTask(
     @Param('id')
