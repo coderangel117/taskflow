@@ -1,20 +1,35 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put } from '@nestjs/common';
 import { NotificationService } from './notification.service';
+import { NotificationDto } from '../Dto/NotificationDto';
 
 @Controller('setting')
 export class NotificationController {
   constructor(private readonly notificationService: NotificationService) {}
 
+  async create(
+    @Body()
+    data: NotificationDto,
+  ) {
+    return this.notificationService.create(data);
+  }
+
   @Get()
-  async getNotifications() {
-    return this.notificationService.getNotifications();
+  async findAll() {
+    return this.notificationService.findAll();
   }
 
-  async getNotificationById(id: number) {
-    return this.notificationService.getNotificationById(id);
+  @Get('/:id')
+  async findById(@Param('id') id: number) {
+    return this.notificationService.findById(id);
   }
 
-  async updateNotification(id: number) {
-    return this.notificationService.updateNotification(id);
+  @Get('/:userId')
+  async findByUserId(@Param('userId') userId: string) {
+    return this.notificationService.findByUserId(Number(userId));
+  }
+
+  @Put()
+  async update(@Param('id') id: number) {
+    return this.notificationService.update(id);
   }
 }

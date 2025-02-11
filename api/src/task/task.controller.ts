@@ -8,11 +8,19 @@ import {
   Put,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
-import { Section, TaskStatus } from '@prisma/client';
+import { TaskDto } from '../Dto/TaskDto';
 
 @Controller('task')
 export class TaskController {
   constructor(private readonly taskService: TaskService) {}
+
+  @Post()
+  async create(
+    @Body()
+    data: TaskDto,
+  ) {
+    return this.taskService.create(data);
+  }
 
   @Get()
   async getTasks() {
@@ -24,29 +32,14 @@ export class TaskController {
     return this.taskService.getTaskById(Number(id));
   }
 
-  @Put('/:id')
-  async updateTask(@Param('id') id: string) {
-    return this.taskService.updateTask(Number(id));
-  }
-
-  @Post()
-  async create(
-    @Body()
-    data: {
-      title: string;
-      description?: string;
-      status: TaskStatus;
-      section: Section;
-      userId: number;
-      tags?: { id: number }[];
-    },
-  ) {
-    return this.taskService.create(data);
-  }
-
   @Get('/user/:userId')
   async findByUser(@Param('userId') userId: string) {
     return this.taskService.findByUser(Number(userId));
+  }
+
+  @Put('/:id')
+  async updateTask(@Param('id') id: string) {
+    return this.taskService.update(Number(id));
   }
 
   @Delete('/:id')
@@ -54,6 +47,6 @@ export class TaskController {
     @Param('id')
     id: string,
   ) {
-    return this.taskService.deleteTask(Number(id));
+    return this.taskService.delete(Number(id));
   }
 }
