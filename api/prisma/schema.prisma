@@ -26,7 +26,7 @@ model Notification {
   title     String
   message   String
   isRead    Boolean  @default(false) // Marquer comme "lu" ou "non lu"
-  type      String // Par exemple : "task", "event", "system"
+  type      String // Type de notification (ex: "task", "event", "theme")
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
@@ -44,19 +44,30 @@ model Tag {
 
 // Table des tâches
 model Task {
-  id          Int        @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   title       String
   description String?
   section     Section
-  status      TaskStatus @default(pending)
+  status      TaskStatus    @default(pending)
   dueDate     DateTime?
-  isCompleted Boolean?   @default(false)
+  isCompleted Boolean?      @default(false)
   userId      Int
-  user        User       @relation(fields: [userId], references: [id])
-  tags        Tag[]      @relation("TaskTags")
-  createdAt   DateTime?  @default(now())
-  updatedAt   DateTime?  @updatedAt
+  user        User          @relation(fields: [userId], references: [id])
+  tags        Tag[]         @relation("TaskTags")
+  history     TaskHistory[]
+  createdAt   DateTime?     @default(now())
+  updatedAt   DateTime?     @updatedAt
   Event       Event[]
+}
+
+model TaskHistory {
+  id        Int      @id @default(autoincrement())
+  taskId    Int
+  task      Task     @relation(fields: [taskId], references: [id])
+  fieldName String
+  oldValue  String?
+  newValue  String
+  changedAt DateTime @default(now())
 }
 
 // Enum pour les sections de la matrice Eisenhower
