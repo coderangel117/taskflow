@@ -13,7 +13,6 @@ model User {
   email        String         @unique
   password     String
   tasks        Task[]
-  events       Event[]
   themes       Theme[]
   preferences  Preference?
   createdAt    DateTime       @default(now())
@@ -49,6 +48,8 @@ model Task {
   description String?
   section     Section
   status      TaskStatus    @default(pending)
+  startDate   DateTime?
+  endDate     DateTime?
   dueDate     DateTime?
   isCompleted Boolean?      @default(false)
   userId      Int
@@ -57,7 +58,6 @@ model Task {
   history     TaskHistory[]
   createdAt   DateTime?     @default(now())
   updatedAt   DateTime?     @updatedAt
-  Event       Event[]
 }
 
 model TaskHistory {
@@ -83,20 +83,6 @@ enum TaskStatus {
   pending
   completed
   archived
-}
-
-// Table des événements (pour l'affichage dans le calendrier)
-model Event {
-  id        Int       @id @default(autoincrement())
-  title     String
-  startDate DateTime
-  endDate   DateTime?
-  userId    Int
-  user      User      @relation(fields: [userId], references: [id])
-  taskId    Int?      @unique
-  task      Task?     @relation(fields: [taskId], references: [id])
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
 }
 
 // Table des thèmes personnalisés

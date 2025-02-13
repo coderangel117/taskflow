@@ -11,6 +11,10 @@ export class TaskService {
       data: {
         title: data.title,
         description: data.description,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        dueDate: data.dueDate,
+        isCompleted: data.isCompleted,
         status: data.status,
         section: data.section,
         user: { connect: { id: data.userId } },

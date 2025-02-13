@@ -26,11 +26,11 @@ export class UserController {
 
   @Patch('/:id')
   async updateUser(@Param('id') id: string) {
-    return this.userService.updateUser(Number(id));
+    return this.userService.update(Number(id));
   }
 
   @Delete('/:id')
   async deleteUser(@Param('id') id: string) {
-    return this.userService.deleteUser(Number(id));
+    return this.userService.delete(Number(id));
   }
 }
