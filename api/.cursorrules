@@ -1,0 +1,75 @@
+# ===========================
+# 🚀 Cursor AI Rules for NestJS (v0.1)
+# ===========================
+#
+# This document defines coding standards, file structure, and integration guidelines
+# for the NestJS project.
+#
+# We are using NestJS 10.0.0 (stable) as of February 22, 2025. This release offers:
+#   - Full TypeScript support for the latest features
+#   - Enhanced error debugging with improved source maps
+#   - New APIs such as enhanced dependency injection and modular architecture
+#
+# Our project also integrates:
+#   - Custom data scraping and integration with external APIs
+#   - Prisma for database connectivity and authentication
+#
+# IMPORTANT:
+#   - Use the NestJS framework conventions (modules, controllers, services).
+#   - Keep your environment variables (for Prisma, etc.) in a secure .env file.
+#   - Update the README.md frequently with architectural decisions and version logs.
+#   - Try to add comments to the code to explain what it does.
+#
+# ------------------------------------------------------------------
+
+# 🛠 GENERAL CODING RULES
+
+- Use TypeScript for all files.
+- Follow NestJS 10.0.0 best practices:
+  - Modular architecture with modules, controllers, and services
+  - Use dependency injection for scalable architecture
+- Leverage Prisma for database interactions and ensure proper schema definitions.
+- Develop scraping utilities for external data.
+- Write clear comments and use JSDoc annotations throughout.
+- Prioritize rapid prototyping (v0.1) while planning for future scalability.
+- Document all integration points and architectural decisions in the README.md.
+
+# 📂 FILE STRUCTURE & NAMING CONVENTIONS
+
+- **Modules:**
+  - Organize code into modules, each with its own folder containing controllers, services, and Prisma schemas.
+- **Controllers:**
+  - Place controllers in the `controllers/` folder within each module.
+- **Services:**
+  - Place services in the `services/` folder within each module.
+- **Prisma Schemas:**
+  - Define Prisma schemas in the `prisma/` folder within each module.
+- **Shared Components:**
+  - Place shared components and utilities in a `shared/` folder.
+
+# 📌 ERROR HANDLING & DEBUGGING
+
+- Wrap asynchronous API calls in `try/catch` blocks.
+- Use improved error debugging features from NestJS 10.0.0:
+  - Better source maps in both the browser and terminal.
+- Remove all debugging console logs before production.
+- Consider using NestJS exception filters for catching runtime errors.
+
+# 🛡 SECURITY & ENVIRONMENT VARIABLES
+
+- Never hardcode sensitive data like API keys or secrets.
+- Use a secure `.env` file for all environment variables.
+- Validate and sanitize user inputs and external data.
+- Limit API exposure by using proper HTTP methods and authentication checks.
+- Enable security features in your `main.ts` when necessary:
+  ```ts
+  // main.ts
+  import { NestFactory } from '@nestjs/core';
+  import { AppModule } from './app.module';
+
+  async function bootstrap() {
+    const app = await NestFactory.create(AppModule);
+    app.enableCors();
+    await app.listen(3000);
+  }
+  bootstrap();
