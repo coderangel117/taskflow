@@ -37,7 +37,7 @@ onMounted(toggleMenu)
             <li><a href="#">Fonctionnalités</a></li>
           </ul>
         </nav>
-        <RouterLink to="/auth/Login">
+        <RouterLink to="/auth/register">
           <button class="cta-button">S'inscrire</button>
         </RouterLink>
       </div>

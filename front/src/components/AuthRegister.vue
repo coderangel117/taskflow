@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="form-container">
-      <h1>Connexion</h1>
+      <h1>Inscription</h1>
       <form>
         <div class="form-group">
           <label for="email">Email</label>
@@ -13,12 +13,9 @@
         </div>
         <button type="submit">Se connecter</button>
       </form>
-      <div class="forgot-password">
-        <a href="#">Mot de passe oublié?</a>
-      </div>
       <div class="register">
-        Pas encore de compte ?
-        <router-link to="/auth/register">S'inscrire</router-link>
+        Compte existant ?
+        <router-link to="/auth/login">Se connecter</router-link>
       </div>
     </div>
   </div>
