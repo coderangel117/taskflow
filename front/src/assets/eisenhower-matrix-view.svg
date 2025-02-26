@@ -1,36 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 250">
-  <!-- Background -->
-  <rect width="350" height="250" fill="#f8f9fa" rx="5" ry="5"/>
-  
+    <!-- Background -->
+    <rect width="350" height="250" fill="#f8f9fa" rx="5" ry="5"/>
+
     <!-- Header -->
-  <rect width="350" height="25" fill="#4361ee" rx="5" ry="5"/>
-  <text x="100" y="18" font-family="Arial" font-size="14" fill="white">Matrice Eisenhower</text>
-  
-  <!-- Matrix grid -->
-  <rect x="10" y="40" width="330" height="200" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
-  <line x1="175" y1="40" x2="175" y2="240" stroke="#ddd" stroke-width="2"/>
-  <line x1="10" y1="140" x2="340" y2="140" stroke="#ddd" stroke-width="2"/>
-  
-  <!-- Matrix labels -->
-  <text x="95" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">URGENT</text>
-  <text x="95" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET</text>
-  <text x="95" y="110" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">IMPORTANT</text>
+    <rect width="350" height="25" fill="#4361ee" rx="5" ry="5"/>
+    <text x="95" y="18" font-family="Arial" font-size="14" fill="white">Vue Matrice Eisenhower</text>
 
-  <text x="265" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON URGENT</text>
-  <text x="265" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET</text>
-  <text x="265" y="110" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">IMPORTANT</text>
-  
-  <text x="95" y="175" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">URGENT</text>
-  <text x="95" y="190" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET</text>
-  <text x="95" y="205" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON IMPORTANT</text>
+    <!-- Matrix grid -->
+    <rect x="10" y="40" width="330" height="200" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+    <line x1="175" y1="40" x2="175" y2="240" stroke="#ddd" stroke-width="2"/>
+    <line x1="10" y1="140" x2="340" y2="140" stroke="#ddd" stroke-width="2"/>
+
+    <!-- Matrix labels -->
+    <text x="95" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">URGENT
+    </text>
+    <text x="95" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET</text>
+    <text x="95" y="110" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">
+        IMPORTANT
+    </text>
+
+    <text x="265" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON
+        URGENT
+    </text>
+    <text x="265" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET
+    </text>
+    <text x="265" y="110" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">
+        IMPORTANT
+    </text>
+
+    <text x="95" y="175" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">URGENT
+    </text>
+    <text x="95" y="190" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET
+    </text>
+    <text x="95" y="205" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON
+        IMPORTANT
+    </text>
 
 
-  <text x="265" y="175" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON URGENT</text>
-  <text x="265" y="190" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET</text>
-  <text x="265" y="205" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON IMPORTANT</text>
+    <text x="265" y="175" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON
+        URGENT
+    </text>
+    <text x="265" y="190" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">ET
+    </text>
+    <text x="265" y="205" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">NON
+        IMPORTANT
+    </text>
 
-  
-  <!-- Add new task button -->
-  <circle cx="325" cy="225" r="10" fill="#4361ee"/>
-  <text x="325" y="230" font-family="Arial" font-size="16" fill="white" text-anchor="middle">+</text>
+
+    <!-- Add new task button -->
+    <circle cx="325" cy="225" r="10" fill="#4361ee"/>
+    <text x="325" y="230" font-family="Arial" font-size="16" fill="white" text-anchor="middle">+</text>
 </svg>
