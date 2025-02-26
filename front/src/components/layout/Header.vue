@@ -20,7 +20,7 @@ onMounted(toggleMenu)
   <header>
     <div class="container">
       <div class="header-content">
-        <a href="#" class="logo">
+        <a href="/" class="logo">
           <span class="logo-icon">✓</span>
           TaskMatrix
         </a>
@@ -37,8 +37,9 @@ onMounted(toggleMenu)
             <li><a href="#">Fonctionnalités</a></li>
           </ul>
         </nav>
-
-        <button class="cta-button">S'inscrire</button>
+        <RouterLink to="/auth/Login">
+          <button class="cta-button">S'inscrire</button>
+        </RouterLink>
       </div>
     </div>
   </header>

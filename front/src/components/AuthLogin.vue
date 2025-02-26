@@ -140,10 +140,6 @@ button:hover {
   button {
     font-size: 14px;
   }
-
-  .image-container {
-    height: 200px;
-  }
 }
 </style>
 
