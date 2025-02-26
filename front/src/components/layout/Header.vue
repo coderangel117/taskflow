@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ name: 'AppHeader' })
+
 import { onMounted } from 'vue'
 
 // Toggle menu for mobile navigation
@@ -38,7 +40,7 @@ onMounted(toggleMenu)
           </ul>
         </nav>
         <RouterLink to="/auth/register">
-          <button class="cta-button">S'inscrire</button>
+          <button class="cta-button">Commencer maintenant</button>
         </RouterLink>
       </div>
     </div>
