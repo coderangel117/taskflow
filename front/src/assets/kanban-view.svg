@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 250">
+  <!-- Background -->
+  <rect width="350" height="250" fill="#f8f9fa" rx="5" ry="5"/>
+  
+    <!-- Header -->
+  <rect width="350" height="25" fill="#4361ee" rx="5" ry="5"/>
+  <text x="85" y="18" font-family="Arial" font-size="14" fill="white">Vue kanban</text>
+  
+  <!-- Kanban columns -->
+  <!-- À faire -->
+  <rect x="10" y="35" width="105" height="200" fill="#f0f0f0" rx="5" ry="5"/>
+  <rect x="10" y="35" width="105" height="30" fill="#e0e0e0" rx="5" ry="5"/>
+  <text x="62" y="55" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">À FAIRE</text>
+  
+  <!-- En cours -->
+  <rect x="122" y="35" width="105" height="200" fill="#f0f0f0" rx="5" ry="5"/>
+  <rect x="122" y="35" width="105" height="30" fill="#e0e0e0" rx="5" ry="5"/>
+  <text x="174" y="55" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">EN COURS</text>
+  
+  <!-- Terminé -->
+  <rect x="234" y="35" width="105" height="200" fill="#f0f0f0" rx="5" ry="5"/>
+  <rect x="234" y="35" width="105" height="30" fill="#e0e0e0" rx="5" ry="5"/>
+  <text x="287" y="55" font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">TERMINÉ</text>
+  
+  <!-- Cards in À faire column -->
+  <rect x="15" y="70" width="95" height="50" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+  <rect x="15" y="70" width="95" height="8" fill="#e63946" rx="3" ry="3"/>
+  <text x="20" y="90" font-family="Arial" font-size="9" font-weight="bold" fill="#333">Réunion client</text>
+  <text x="20" y="105" font-family="Arial" font-size="8" fill="#666">Présentation Q1</text>
+  
+  <rect x="15" y="130" width="95" height="50" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+  <rect x="15" y="130" width="95" height="8" fill="#4cc9f0" rx="3" ry="3"/>
+  <text x="20" y="150" font-family="Arial" font-size="9" font-weight="bold" fill="#333">Planifier projet Q1</text>
+  <text x="20" y="165" font-family="Arial" font-size="8" fill="#666">Définir objectifs</text>
+  
+  <!-- Cards in En cours column -->
+  <rect x="127" y="70" width="95" height="50" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+  <rect x="127" y="70" width="95" height="8" fill="#ffd166" rx="3" ry="3"/>
+  <text x="132" y="90" font-family="Arial" font-size="9" font-weight="bold" fill="#333">Finaliser rapport</text>
+  <text x="132" y="105" font-family="Arial" font-size="8" fill="#666">Révision financière</text>
+  
+  <rect x="127" y="130" width="95" height="50" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+  <rect x="127" y="130" width="95" height="8" fill="#06d6a0" rx="3" ry="3"/>
+  <text x="132" y="150" font-family="Arial" font-size="9" font-weight="bold" fill="#333">Répondre emails</text>
+  <text x="132" y="165" font-family="Arial" font-size="8" fill="#666">Support clients</text>
+  
+  <!-- Cards in Terminé column -->
+  <rect x="239" y="70" width="95" height="50" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+  <rect x="239" y="70" width="95" height="8" fill="#4361ee" rx="3" ry="3"/>
+  <text x="244" y="90" font-family="Arial" font-size="9" font-weight="bold" fill="#333">Mise à jour DB</text>
+  <text x="244" y="105" font-family="Arial" font-size="8" fill="#666">Migration v3.2</text>
+  
+  <rect x="239" y="130" width="95" height="50" fill="white" stroke="#ddd" stroke-width="1" rx="3" ry="3"/>
+  <rect x="239" y="130" width="95" height="8" fill="#7209b7" rx="3" ry="3"/>
+  <text x="244" y="150" font-family="Arial" font-size="9" font-weight="bold" fill="#333">Design UI</text>
+  <text x="244" y="165" font-family="Arial" font-size="8" fill="#666">Prototype dashboard</text>
+  <!-- Add new task button -->
+  <circle cx="325" cy="225" r="10" fill="#4361ee"/>
+  <text x="325" y="230" font-family="Arial" font-size="16" fill="white" text-anchor="middle">+</text>
+</svg>

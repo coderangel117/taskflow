@@ -1,0 +1,106 @@
+# ===========================
+# 🚀 Cursor AI Rules for Vue.js 3 (v0.1)
+# ===========================
+#
+# This document defines coding standards, file structure, and integration guidelines
+# for the Vue.js 3 project.
+#
+# Project Description:
+#   - The project aims to develop a scalable and efficient frontend application using Vue.js 3.
+#   - It integrates Pinia for state management and includes custom data scraping utilities.
+#   - The focus is on rapid prototyping while ensuring future scalability and maintainability.
+#
+# We are using Vue.js 3 (stable) as of February 22, 2025. This release offers:
+#   - Full support for the Composition API
+#   - Improved performance and smaller bundle sizes
+#   - Enhanced TypeScript support
+#
+# Our project also integrates:
+#   - Pinia for state management
+#   - Vue Router for Single Page Application (SPA) development
+#   - Tailwind CSS for utility-first styling
+#   - Custom data scraping and integration with external APIs
+#
+# IMPORTANT:
+#   - Use the Vue.js 3 conventions and best practices.
+#   - Keep your environment variables (for Pinia, etc.) in a secure .env file.
+#   - Update the README.md frequently with architectural decisions and version logs.
+#   - Try to add comments to the code to explain what it does.
+#
+# ------------------------------------------------------------------
+
+# 🛠 GENERAL CODING RULES
+
+- Use TypeScript for all files to leverage static typing and better tooling support.
+- Prefer the Composition API for new components to benefit from better logic organization.
+- Use Pinia for state management to keep the state predictable and centralized.
+- Use Tailwind CSS for styling components. Generate Tailwind classes within component templates.
+- Develop scraping utilities for external data integration.
+- Write clear comments and use JSDoc annotations throughout.
+- Prioritize rapid prototyping (v0.1) while planning for future scalability.
+- Document all integration points and architectural decisions in the README.md.
+
+# 📂 FILE STRUCTURE & NAMING CONVENTIONS
+
+- **Components:**
+  - Organize components in the `src/components/` directory.
+  - Use PascalCase for component file names (e.g., `MyComponent.vue`).
+  - Use Tailwind CSS classes within the `<template>` section for styling.
+- **Views:**
+  - Place view components in the `src/views/` directory.
+  - Use PascalCase for view file names (e.g., `HomeView.vue`).
+- **Store:**
+  - Define Pinia stores in the `src/stores/` directory.
+  - Use camelCase for store file names (e.g., `mainStore.ts`).
+- **Router:**
+  - Configure Vue Router in the `src/router/` directory.
+  - Define routes in a file named `index.ts`.
+- **Assets:**
+  - Place static assets in the `src/assets/` directory.
+- **Utils:**
+  - Place utility functions and helpers in the `src/utils/` directory.
+
+# 🎨 STYLING & UI
+
+- Use Tailwind CSS classes for consistent styling.
+- Adhere to shadcn UI guidelines for integrating pre-built components.
+- Avoid inline styles; rely on Tailwind classes or CSS modules.
+- Ensure components are responsive and accessible.
+- Add extensive comments in components to explain functionality and design decisions.
+
+# 📌 ERROR HANDLING & DEBUGGING
+
+- Wrap asynchronous API calls in `try/catch` blocks.
+- Use Vue DevTools for debugging and inspecting the state and components.
+- Remove all debugging console logs before production.
+- Consider using error boundaries or global error handlers for catching runtime errors.
+
+# 🛡 SECURITY & ENVIRONMENT VARIABLES
+
+- Never hardcode sensitive data like API keys or secrets.
+- Use a secure `.env` file for all environment variables.
+- Validate and sanitize user inputs and external data.
+- Limit API exposure by using proper HTTP methods and authentication checks.
+- Enable security features in your `vite.config.ts` or `vue.config.js` when necessary.
+
+# 📑 VERSION-SPECIFIC NOTES (v0.1)
+
+- Focus for v0.1:
+  - Set up basic CRUD operations using Vue.js 3 and Pinia.
+  - Create basic routes and views for the main functionalities.
+  - Establish integration points for scraping utilities and Pinia.
+  - Use Tailwind CSS for styling all components.
+  - Document all processes and update the README.md frequently with version logs and architectural decisions.
+
+# 📖 README UPDATE INSTRUCTIONS
+
+- Documentation Guidelines:
+  - Include setup instructions for environment variables (Pinia, etc.).
+  - Maintain a version log documenting changes from v0.1 onward.
+  - Explain the file structure, naming conventions, and integration points.
+  - Provide detailed instructions on how to run, test, and deploy the application.
+
+# 🚀 HAPPY HACKING!
+
+- Treat this file as a living document—update it as the project evolves.
+- Follow these standards to maintain a high-quality, scalable codebase as you iterate from v0.1 to future versions.
