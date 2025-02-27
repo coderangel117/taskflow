@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const email = ref('')
+const password = ref('')
+</script>
 <template>
   <div class="container">
     <div class="form-container">
@@ -5,11 +11,17 @@
       <form>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" required />
+          <input id="email" v-model="email" placeholder="Email" required type="email" />
         </div>
         <div class="form-group">
-          <label for="password">Mot de passe</label>
-          <input type="password" id="password" required />
+          <label for="password">Mot de passe </label>
+          <input
+            id="password"
+            v-model="password"
+            placeholder="Mot de passe"
+            required
+            type="password"
+          />
         </div>
         <button type="submit">Se connecter</button>
       </form>
@@ -145,5 +157,3 @@ button:hover {
   }
 }
 </style>
-
-<script setup lang="ts"></script>

@@ -1,6 +1,6 @@
 <script setup>
 defineOptions({ name: 'AppHeader' })
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue' // États pour les menus déroulants
 
 // États pour les menus déroulants
 const featuresMenuOpen = ref(false)

@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/components/Home.vue'
 import AuthLogin from '@/components/AuthLogin.vue'
 import AuthRegister from '@/components/AuthRegister.vue'
 import MentionLegales from '@/components/legal/MentionLegales.vue'
@@ -10,9 +9,12 @@ import EisenhowerFeature from '@/components/features/EisenhowerFeature.vue'
 import KanbanFeature from '@/components/features/KanbanFeature.vue'
 import CalendarFeature from '@/components/features/CalendarFeature.vue'
 import Pricing from '@/components/Pricing.vue'
+import AppHome from '@/components/Home.vue'
+import MatrixView from '@/components/views/MatrixView.vue'
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
+  { path: '/', name: 'Home', component: AppHome },
+  { path: '/dashboard', name: 'MatrixView', component: MatrixView },
   { path: '/pricing', name: 'Pricing', component: Pricing },
   { path: '/auth/login', name: 'Login', component: AuthLogin },
   { path: '/auth/register', name: 'Register', component: AuthRegister },
