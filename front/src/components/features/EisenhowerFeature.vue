@@ -116,7 +116,7 @@
 /* Styles communs pour les pages de fonctionnalités */
 .feature-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 40px 20px;
 }
 

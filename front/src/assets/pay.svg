@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 680">
+    <!-- Styles -->
+    <style>
+        .table-border { fill: none; stroke: #ddd; stroke-width: 1; }
+        .header { fill: #5b9bd5; }
+        .row-even { fill: #f8f9fa; }
+        .row-odd { fill: white; }
+        .header-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: white; }
+        .cell-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+        .cell-title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #333; }
+        .check { fill: #4caf50; }
+        .cross { fill: #f44336; }
+        .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #333; }
+    </style>
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" class="title">Plans de tarification - Modèle 100% Payant</text>
+
+    <!-- Headers -->
+    <rect x="50" y="50" width="200" height="40" class="header"/>
+    <rect x="250" y="50" width="200" height="40" class="header"/>
+    <rect x="450" y="50" width="200" height="40" class="header"/>
+    <rect x="650" y="50" width="100" height="40" class="header"/>
+
+    <text x="150" y="75" text-anchor="middle" class="header-text">Caractéristiques</text>
+    <text x="350" y="75" text-anchor="middle" class="header-text">Plan Basique</text>
+    <text x="550" y="75" text-anchor="middle" class="header-text">Plan Premium</text>
+    <text x="700" y="75" text-anchor="middle" class="header-text">Plan Équipe</text>
+
+    <!-- Rows -->
+    <!-- Row 1: Tarif -->
+    <rect x="50" y="90" width="200" height="50" class="row-odd"/>
+    <rect x="250" y="90" width="200" height="50" class="row-odd"/>
+    <rect x="450" y="90" width="200" height="50" class="row-odd"/>
+    <rect x="650" y="90" width="100" height="50" class="row-odd"/>
+
+    <text x="70" y="115" class="cell-title">Tarif</text>
+    <text x="350" y="115" text-anchor="middle" class="cell-text">4,99 € - 7 €/mois</text>
+    <text x="550" y="115" text-anchor="middle" class="cell-text">9,99 € - 12 €/mois</text>
+    <text x="700" y="108" text-anchor="middle" class="cell-text">29,99 € - 39 €/mois</text>
+    <text x="700" y="125" text-anchor="middle" class="cell-text">par utilisateur</text>
+
+    <!-- Row 2: Gestion de tâches -->
+    <rect x="50" y="140" width="200" height="40" class="row-even"/>
+    <rect x="250" y="140" width="200" height="40" class="row-even"/>
+    <rect x="450" y="140" width="200" height="40" class="row-even"/>
+    <rect x="650" y="140" width="100" height="40" class="row-even"/>
+
+    <text x="70" y="165" class="cell-title">Gestion de tâches</text>
+    <text x="350" y="165" text-anchor="middle" class="cell-text">Complète</text>
+    <text x="550" y="165" text-anchor="middle" class="cell-text">Complète</text>
+    <text x="700" y="165" text-anchor="middle" class="cell-text">Complète</text>
+
+    <!-- Row 3: Vues -->
+    <rect x="50" y="180" width="200" height="40" class="row-odd"/>
+    <rect x="250" y="180" width="200" height="40" class="row-odd"/>
+    <rect x="450" y="180" width="200" height="40" class="row-odd"/>
+    <rect x="650" y="180" width="100" height="40" class="row-odd"/>
+
+    <text x="70" y="205" class="cell-title">Vues</text>
+    <text x="350" y="205" text-anchor="middle" class="cell-text">Eisenhower et Kanban</text>
+    <text x="550" y="205" text-anchor="middle" class="cell-text">Toutes sans limitation</text>
+    <text x="700" y="205" text-anchor="middle" class="cell-text">Toutes sans limitation</text>
+
+    <!-- Row 4: Personnalisation -->
+    <rect x="50" y="220" width="200" height="40" class="row-even"/>
+    <rect x="250" y="220" width="200" height="40" class="row-even"/>
+    <rect x="450" y="220" width="200" height="40" class="row-even"/>
+    <rect x="650" y="220" width="100" height="40" class="row-even"/>
+
+
+    <text x="70" y="245" class="cell-title">Personnalisation</text>
+    <text x="350" y="245" font-size="13" text-anchor="middle" class="cell-text">Basique</text>
+    <text x="550" y="245" font-size="13" text-anchor="middle" class="cell-text">Avancée</text>
+    <text x="700" y="245" font-size="13" text-anchor="middle" class="cell-text">Avancée</text>
+
+    <!-- Row 5: Historique -->
+    <rect x="50" y="260" width="200" height="40" class="row-odd"/>
+    <rect x="250" y="260" width="200" height="40" class="row-odd"/>
+    <rect x="450" y="260" width="200" height="40" class="row-odd"/>
+    <rect x="650" y="260" width="100" height="40" class="row-odd"/>
+
+    <text x="70" y="285" class="cell-title">Historique</text>
+    <text x="350" y="285" text-anchor="middle" class="cell-text">Réduit</text>
+    <text x="550" y="285" text-anchor="middle" class="cell-text">Complet</text>
+    <text x="700" y="285" text-anchor="middle" class="cell-text">Complet</text>
+
+    <!-- Row 6: Collaboration -->
+    <rect x="50" y="300" width="200" height="40" class="row-even"/>
+    <rect x="250" y="300" width="200" height="40" class="row-even"/>
+    <rect x="450" y="300" width="200" height="40" class="row-even"/>
+    <rect x="650" y="300" width="100" height="40" class="row-even"/>
+
+    <text x="70" y="325" class="cell-title">Collaboration</text>
+    <!-- Cross -->
+    <text x="350" y="325" text-anchor="middle" class="cross">✗</text>
+    <!-- Cross -->
+    <text x="550" y="325" text-anchor="middle" class="cross">✗</text>
+    <!-- Check -->
+    <text x="700" y="325" text-anchor="middle" class="check">✓ Avancée</text>
+
+    <!-- Row 7: Gestion des rôles -->
+    <rect x="50" y="340" width="200" height="40" class="row-odd"/>
+    <rect x="250" y="340" width="200" height="40" class="row-odd"/>
+    <rect x="450" y="340" width="200" height="40" class="row-odd"/>
+    <rect x="650" y="340" width="100" height="40" class="row-odd"/>
+
+    <text x="70" y="365" class="cell-title">Gestion des rôles</text>
+    <!-- Cross -->
+    <text x="350" y="365" text-anchor="middle" class="cross">✗</text>
+    <!-- Cross -->
+    <text x="550" y="365" text-anchor="middle" class="cross">✗</text>
+    <!-- Check -->
+    <text x="700" y="365" text-anchor="middle" class="check">✓ Personnalisable</text>
+
+    <!-- Row 8: Intégrations -->
+    <rect x="50" y="380" width="200" height="40" class="row-even"/>
+    <rect x="250" y="380" width="200" height="40" class="row-even"/>
+    <rect x="450" y="380" width="200" height="40" class="row-even"/>
+    <rect x="650" y="380" width="100" height="40" class="row-even"/>
+
+    <text x="70" y="405" class="cell-title">Intégrations</text>
+    <text x="350" y="405" text-anchor="middle" class="cell-text">Limitées</text>
+    <text x="550" y="405" text-anchor="middle" class="cell-text">Complètes</text>
+    <text x="700" y="405" text-anchor="middle" class="cell-text">Multiples et avancées</text>
+
+    <!-- Row 9: Support -->
+    <rect x="50" y="420" width="200" height="40" class="row-odd"/>
+    <rect x="250" y="420" width="200" height="40" class="row-odd"/>
+    <rect x="450" y="420" width="200" height="40" class="row-odd"/>
+    <rect x="650" y="420" width="100" height="40" class="row-odd"/>
+
+    <text x="70" y="445" class="cell-title">Support</text>
+    <text x="350" y="445" text-anchor="middle" class="cell-text">Standard</text>
+    <text x="550" y="445" text-anchor="middle" class="cell-text">Prioritaire</text>
+    <text x="700" y="445" text-anchor="middle" class="cell-text">Dédié</text>
+
+    <!-- Row 10: Reporting -->
+    <rect x="50" y="460" width="200" height="40" class="row-even"/>
+    <rect x="250" y="460" width="200" height="40" class="row-even"/>
+    <rect x="450" y="460" width="200" height="40" class="row-even"/>
+    <rect x="650" y="460" width="100" height="40" class="row-even"/>
+
+    <text x="70" y="485" class="cell-title">Reporting</text>
+    <!-- Cross -->
+    <text x="350" y="485" text-anchor="middle" class="cross">✗</text>
+    <text x="550" y="485" text-anchor="middle" class="cell-text">Basique</text>
+    <text x="700" y="485" text-anchor="middle" class="cell-text">Avancé</text>
+
+    <!-- Row 11: Public cible -->
+    <rect x="50" y="500" width="200" height="50" class="row-odd"/>
+    <rect x="250" y="500" width="200" height="50" class="row-odd"/>
+    <rect x="450" y="500" width="200" height="50" class="row-odd"/>
+    <rect x="650" y="500" width="100" height="50" class="row-odd"/>
+
+    <text x="70" y="525" class="cell-title">Public cible</text>
+    <text x="350" y="518" text-anchor="middle" class="cell-text">Utilisateurs cherchant</text>
+    <text x="350" y="535" text-anchor="middle" class="cell-text">des fonctions essentielles</text>
+    <text x="550" y="518" text-anchor="middle" class="cell-text">Utilisateurs individuels</text>
+    <text x="550" y="535" text-anchor="middle" class="cell-text">exigeants</text>
+    <text x="700" y="525" text-anchor="middle" class="cell-text">Équipes et entreprises</text>
+
+    <!-- Table Borders -->
+    <rect x="50" y="50" width="700" height="500" class="table-border"/>
+    <!-- Vertical lines -->
+    <!--    <line x1="250" y1="50" x2="250" y2="550" stroke="#ddd"/>-->
+    <!--    <line x1="450" y1="50" x2="450" y2="550" stroke="#ddd"/>-->
+    <!--    <line x1="625" y1="50" x2="625" y2="550" stroke="#ddd"/>-->
+
+    <!-- Horizontal lines -->
+    <line x1="50" y1="90" x2="750" y2="90" stroke="#ddd"/>
+    <line x1="50" y1="140" x2="750" y2="140" stroke="#ddd"/>
+    <line x1="50" y1="180" x2="750" y2="180" stroke="#ddd"/>
+    <line x1="50" y1="220" x2="750" y2="220" stroke="#ddd"/>
+    <line x1="50" y1="260" x2="750" y2="260" stroke="#ddd"/>
+    <line x1="50" y1="300" x2="750" y2="300" stroke="#ddd"/>
+    <line x1="50" y1="340" x2="750" y2="340" stroke="#ddd"/>
+    <line x1="50" y1="380" x2="750" y2="380" stroke="#ddd"/>
+    <line x1="50" y1="420" x2="750" y2="420" stroke="#ddd"/>
+    <line x1="50" y1="460" x2="750" y2="460" stroke="#ddd"/>
+    <line x1="50" y1="500" x2="750" y2="500" stroke="#ddd"/>
+</svg>

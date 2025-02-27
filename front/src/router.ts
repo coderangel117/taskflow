@@ -8,12 +8,19 @@ import ConditionUtilisation from '@/components/legal/ConditionUtilisation.vue'
 import PrivacyPolicy from '@/components/legal/PrivacyPolicy.vue'
 import EisenhowerFeature from '@/components/features/EisenhowerFeature.vue'
 import KanbanFeature from '@/components/features/KanbanFeature.vue'
+import CalendarFeature from '@/components/features/CalendarFeature.vue'
+import Pricing from '@/components/Pricing.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/pricing',
+    name: 'Pricing',
+    component: Pricing,
   },
   {
     path: '/auth/login',
@@ -34,6 +41,11 @@ const routes = [
     path: '/features/kanban',
     name: 'KanbanFeature',
     component: KanbanFeature,
+  },
+  {
+    path: '/features/calendar',
+    name: 'CalendarFeature',
+    component: CalendarFeature,
   },
   {
     path: '/legal/mentions',

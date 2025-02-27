@@ -21,8 +21,8 @@ defineOptions({ name: 'AppFooter' })
           <h3>Fonctionnalités</h3>
           <ul>
             <li><a href="/features/matrix">Matrice Eisenhower</a></li>
-            <li><a href="#">Vue Calendrier</a></li>
             <li><a href="/features/kanban">Vue Kanban</a></li>
+            <li><a href="/features/calendar">Vue calendrier</a></li>
             <li><a href="#">Synchronisation</a></li>
           </ul>
         </div>
