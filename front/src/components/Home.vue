@@ -10,7 +10,7 @@ defineOptions({ name: 'AppHome' })
         TaskFlow combine Eisenhower, Kanban et vue Calendrier pour une gestion de tâches optimale.
         Prenez le contrôle de votre temps.
       </p>
-      <button class="cta-button">Commencer maintenant</button>
+      <router-link to="/auth/register" class="cta-button">Commencer maintenant</router-link>
     </div>
   </section>
 

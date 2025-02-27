@@ -125,6 +125,7 @@ onUnmounted(() => {
         <span class="burger-icon"></span>
       </button>
     </div>
+    x²
 
     <!-- Menu mobile -->
     <div class="mobile-menu" v-show="mobileMenuOpen">

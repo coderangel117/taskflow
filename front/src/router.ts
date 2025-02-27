@@ -12,61 +12,17 @@ import CalendarFeature from '@/components/features/CalendarFeature.vue'
 import Pricing from '@/components/Pricing.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/pricing',
-    name: 'Pricing',
-    component: Pricing,
-  },
-  {
-    path: '/auth/login',
-    name: 'Login',
-    component: AuthLogin,
-  },
-  {
-    path: '/auth/register',
-    name: 'Register',
-    component: AuthRegister,
-  },
-  {
-    path: '/features/matrix',
-    name: 'EisenhowerFeature',
-    component: EisenhowerFeature,
-  },
-  {
-    path: '/features/kanban',
-    name: 'KanbanFeature',
-    component: KanbanFeature,
-  },
-  {
-    path: '/features/calendar',
-    name: 'CalendarFeature',
-    component: CalendarFeature,
-  },
-  {
-    path: '/legal/mentions',
-    name: 'MentionLegales',
-    component: MentionLegales,
-  },
-  {
-    path: '/legal/cookies',
-    name: 'Cookies',
-    component: Cookie,
-  },
-  {
-    path: '/legal/conditions',
-    name: 'ConditionsUtilisation',
-    component: ConditionUtilisation,
-  },
-  {
-    path: '/legal/privacy',
-    name: 'Privacy policies',
-    component: PrivacyPolicy,
-  },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/pricing', name: 'Pricing', component: Pricing },
+  { path: '/auth/login', name: 'Login', component: AuthLogin },
+  { path: '/auth/register', name: 'Register', component: AuthRegister },
+  { path: '/features/matrix', name: 'EisenhowerFeature', component: EisenhowerFeature },
+  { path: '/features/kanban', name: 'KanbanFeature', component: KanbanFeature },
+  { path: '/features/calendar', name: 'CalendarFeature', component: CalendarFeature },
+  { path: '/legal/mentions', name: 'MentionLegales', component: MentionLegales },
+  { path: '/legal/cookies', name: 'Cookies', component: Cookie },
+  { path: '/legal/conditions', name: 'ConditionsUtilisation', component: ConditionUtilisation },
+  { path: '/legal/privacy', name: 'Privacy policies', component: PrivacyPolicy },
 ]
 
 const router = createRouter({

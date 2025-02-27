@@ -12,7 +12,6 @@ defineOptions({ name: 'AppFooter' })
           <ul>
             <li><a href="#">À propos</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Carrières</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
