@@ -8,7 +8,7 @@ defineOptions({ name: 'AppFooter' })
     <div class="container">
       <div class="footer-content">
         <div class="footer-column">
-          <h3>TaskMatrix</h3>
+          <h3>TaskFlow</h3>
           <ul>
             <li><a href="#">À propos</a></li>
             <li><a href="#">Blog</a></li>
@@ -20,9 +20,9 @@ defineOptions({ name: 'AppFooter' })
         <div class="footer-column">
           <h3>Fonctionnalités</h3>
           <ul>
-            <li><a href="#">Matrice Eisenhower</a></li>
+            <li><a href="/features/matrix">Matrice Eisenhower</a></li>
             <li><a href="#">Vue Calendrier</a></li>
-            <li><a href="#">Vue Kanban</a></li>
+            <li><a href="/features/kanban">Vue Kanban</a></li>
             <li><a href="#">Synchronisation</a></li>
           </ul>
         </div>
@@ -40,16 +40,24 @@ defineOptions({ name: 'AppFooter' })
         <div class="footer-column">
           <h3>Légal</h3>
           <ul>
-            <li><a href="#">Conditions d'utilisation</a></li>
-            <li><a href="#">Politique de confidentialité</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Mentions légales</a></li>
+            <li>
+              <router-link to="/legal/conditions">Conditions d'utilisation</router-link>
+            </li>
+            <li>
+              <router-link to="/legal/privacy">Politique de confidentialité</router-link>
+            </li>
+            <li>
+              <router-link to="/legal/cookies">Cookies</router-link>
+            </li>
+            <li>
+              <router-link to="/legal/mentions">Mentions légales</router-link>
+            </li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2025 TaskMatrix. Tous droits réservés.</p>
+        <p>© 2025 TaskFlow. Tous droits réservés.</p>
       </div>
     </div>
   </footer>

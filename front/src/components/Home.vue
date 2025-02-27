@@ -7,7 +7,7 @@ defineOptions({ name: 'AppHome' })
     <div class="container">
       <h1>Gérez vos tâches de façon intelligente</h1>
       <p>
-        TaskMatrix combine Eisenhower, Kanban et vue Calendrier pour une gestion de tâches optimale.
+        TaskFlow combine Eisenhower, Kanban et vue Calendrier pour une gestion de tâches optimale.
         Prenez le contrôle de votre temps.
       </p>
       <button class="cta-button">Commencer maintenant</button>

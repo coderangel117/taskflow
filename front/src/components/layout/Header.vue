@@ -24,7 +24,7 @@ onMounted(toggleMenu)
       <div class="header-content">
         <a href="/" class="logo">
           <span class="logo-icon">✓</span>
-          TaskMatrix
+          Taskflow
         </a>
 
         <div class="menu-toggle">
