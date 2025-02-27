@@ -1,48 +1,81 @@
 <script setup lang="ts">
-document.addEventListener('DOMContentLoaded', function () {
-  const taskForm = document.getElementById('task-form')
+import { onMounted } from 'vue'
 
-  taskForm.addEventListener('submit', function (e) {
-    e.preventDefault()
+// Fonction pour configurer les actions sur une carte de tâche
+function setupTaskActions(taskCard: HTMLElement) {
+  // Bouton de suppression
+  const deleteBtn = taskCard.querySelector('.btn-delete') as HTMLElement | null
+  deleteBtn?.addEventListener('click', () => {
+    taskCard.remove()
+  })
 
-    // Récupérer les valeurs du formulaire
-    const title = document.getElementById('task-title').value
-    const description = document.getElementById('task-description').value
-    const importance = document.getElementById('importance').value
-    const urgency = document.getElementById('urgency').value
-    const dueDate = document.getElementById('due-date').value
+  // Bouton de complétion
+  const completeBtn = taskCard.querySelector('.btn-complete') as HTMLElement | null
+  completeBtn?.addEventListener('click', () => {
+    taskCard.classList.toggle('completed')
+  })
 
-    // Déterminer le quadrant approprié
-    let quadrantId
+  // Bouton d'édition
+  const editBtn = taskCard.querySelector('.btn-edit') as HTMLElement | null
+  editBtn?.addEventListener('click', () => {
+    alert("Fonctionnalité d'édition à implémenter")
+  })
+}
 
-    if (importance === 'important' && urgency === 'urgent') {
-      quadrantId = 'q1'
-      console.log('q1')
-    } else if (importance === 'important' && urgency === 'not-urgent') {
-      quadrantId = 'q2'
-    } else if (importance === 'not-important' && urgency === 'urgent') {
-      quadrantId = 'q3'
-    } else if (importance === 'not-important' && urgency === 'not-urgent') {
-      quadrantId = 'q4'
-    }
+onMounted(() => {
+  // Sélectionner le formulaire de tâche
+  const taskForm = document.getElementById('task-form') as HTMLFormElement | null
+  if (taskForm) {
+    taskForm.addEventListener('submit', (e: Event) => {
+      e.preventDefault()
 
-    // Créer une nouvelle tâche
-    if (quadrantId && title) {
-      const quadrant = document.getElementById(quadrantId)
+      // Récupérer les valeurs du formulaire en précisant leur type
+      const titleInput = document.getElementById('task-title') as HTMLInputElement | null
+      const descriptionInput = document.getElementById(
+        'task-description',
+      ) as HTMLInputElement | null
+      const importanceInput = document.getElementById('importance') as HTMLSelectElement | null
+      const urgencyInput = document.getElementById('urgency') as HTMLSelectElement | null
+      const dueDateInput = document.getElementById('due-date') as HTMLInputElement | null
 
-      // Créer l'élément de tâche
-      const taskCard = document.createElement('div')
-      taskCard.className = 'task-card'
+      if (!titleInput || !descriptionInput || !importanceInput || !urgencyInput || !dueDateInput)
+        return
 
-      // Formater la date d'affichage
-      let displayDate = 'Non définie'
-      if (dueDate) {
-        const dateObj = new Date(dueDate)
-        displayDate = dateObj.toLocaleDateString('fr-FR')
+      const title = titleInput.value
+      const description = descriptionInput.value
+      const importance = importanceInput.value
+      const urgency = urgencyInput.value
+      const dueDate = dueDateInput.value
+
+      // Déterminer le quadrant approprié
+      let quadrantId: string | undefined
+      if (importance === 'important' && urgency === 'urgent') {
+        quadrantId = 'q1'
+        console.log('q1')
+      } else if (importance === 'important' && urgency === 'not-urgent') {
+        quadrantId = 'q2'
+      } else if (importance === 'not-important' && urgency === 'urgent') {
+        quadrantId = 'q3'
+      } else if (importance === 'not-important' && urgency === 'not-urgent') {
+        quadrantId = 'q4'
       }
 
-      // Construire le HTML de la tâche
-      taskCard.innerHTML = `
+      // Créer une nouvelle tâche si le quadrant et le titre sont valides
+      if (quadrantId && title) {
+        const quadrant = document.getElementById(quadrantId)
+        if (quadrant) {
+          const taskCard = document.createElement('div')
+          taskCard.className = 'task-card'
+
+          // Formater la date d'affichage
+          let displayDate = 'Non définie'
+          if (dueDate) {
+            const dateObj = new Date(dueDate)
+            displayDate = dateObj.toLocaleDateString('fr-FR')
+          }
+
+          // Construire le HTML de la tâche
+          taskCard.innerHTML = `
             <div class="task-header">
               <span class="task-title">${title}</span>
               <div class="task-actions">
@@ -57,41 +90,27 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
           `
 
-      // Ajouter la tâche après l'en-tête du quadrant
-      const quadrantHeader = quadrant.querySelector('.quadrant-header')
-      quadrant.insertBefore(taskCard, quadrantHeader.nextSibling)
+          // Ajouter la tâche après l'en-tête du quadrant
+          const quadrantHeader = quadrant.querySelector('.quadrant-header')
+          if (quadrantHeader && quadrantHeader.parentNode) {
+            quadrant.insertBefore(taskCard, quadrantHeader.nextSibling)
+          } else {
+            quadrant.appendChild(taskCard)
+          }
 
-      // Réinitialiser le formulaire
-      taskForm.reset()
+          // Réinitialiser le formulaire
+          taskForm.reset()
 
-      // Ajouter les écouteurs d'événements pour les boutons
-      setupTaskActions(taskCard)
-    }
-  })
-
-  // Configurer les actions pour les tâches existantes
-  document.querySelectorAll('.task-card').forEach(setupTaskActions)
-
-  // Configuration des actions de tâche
-  function setupTaskActions(taskCard) {
-    // Bouton de suppression
-    const deleteBtn = taskCard.querySelector('.btn-delete')
-    deleteBtn.addEventListener('click', function () {
-      taskCard.remove()
-    })
-
-    // Bouton de complétion
-    const completeBtn = taskCard.querySelector('.btn-complete')
-    completeBtn.addEventListener('click', function () {
-      taskCard.classList.toggle('completed')
-    })
-
-    // Bouton d'édition - simplement pour la démo
-    const editBtn = taskCard.querySelector('.btn-edit')
-    editBtn.addEventListener('click', function () {
-      alert("Fonctionnalité d'édition à implémenter")
+          // Configurer les actions pour la nouvelle tâche
+          setupTaskActions(taskCard)
+        }
+      }
     })
   }
+
+  // Configurer les actions pour les tâches existantes
+  const existingTaskCards = document.querySelectorAll('.task-card')
+  existingTaskCards.forEach((card) => setupTaskActions(card as HTMLElement))
 })
 </script>
 
@@ -372,7 +391,7 @@ button {
 
 .btn-submit {
   background-color: var(--primary);
-  color: var(--white);
+  color: white;
   padding: 0.75rem 1rem;
   font-weight: 600;
   font-size: 1rem;
@@ -381,12 +400,13 @@ button {
 }
 
 .btn-submit:hover {
-  background-color: var(--primary-dark);
+  background-color: var(--secondary);
 }
 
 /* Matrix Styles */
 .matrix-container {
-  background-color: var(--white);
+  width: 100%;
+  background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -395,7 +415,7 @@ button {
 .matrix-title {
   margin-bottom: 1.5rem;
   color: var(--primary);
-  border-bottom: 2px solid var(--primary-light);
+  border-bottom: 2px solid var(--primary);
   padding-bottom: 0.5rem;
 }
 
@@ -424,7 +444,7 @@ button {
   border-radius: 4px;
   font-weight: 600;
   text-align: center;
-  color: var(--white);
+  color: black;
 }
 
 .q1 {

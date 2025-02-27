@@ -8,6 +8,10 @@
     --danger: #e63946;
     --success: #06d6a0;
     --warning: #ffd166;
+    --important-urgent: #f43f5e;
+    --important-not-urgent: #fbbf24;
+    --not-important-urgent: #3a86ff;
+    --not-important-not-urgent: #94a3b8;
 }
 
 * {
