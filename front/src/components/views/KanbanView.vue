@@ -63,18 +63,15 @@
 <style scoped>
 .kanban-container {
   display: flex;
-  width: 1500px;
-  background-color: red;
+  background-color: #f7f7f7;
   justify-content: center;
-  align-items: center;
   margin-top: 50px;
 }
 
-kanban-board {
-  width: 80%;
-  background-color: green;
+.kanban-board {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  width: 80%;
 }
 
 .kanban-column {
@@ -85,9 +82,10 @@ kanban-board {
 }
 
 .kanban-column-header {
-  background-color: #333;
+  text-align: center;
+  background-color: white;
+  color: black;
   border-radius: 5px 5px 0 0;
-  color: white;
   padding: 10px;
 }
 
@@ -104,9 +102,10 @@ kanban-board {
 }
 
 .kanban-card-header {
-  background-color: #333;
+  text-align: center;
+  background-color: white;
+  color: black;
   border-radius: 5px 5px 0 0;
-  color: white;
   padding: 10px;
 }
 
