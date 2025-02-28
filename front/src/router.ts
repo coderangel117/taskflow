@@ -11,10 +11,12 @@ import CalendarFeature from '@/components/features/CalendarFeature.vue'
 import Pricing from '@/components/Pricing.vue'
 import AppHome from '@/components/Home.vue'
 import MatrixView from '@/components/views/MatrixView.vue'
+import KanbanView from '@/components/views/KanbanView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: AppHome },
   { path: '/dashboard', name: 'MatrixView', component: MatrixView },
+  { path: '/kanban', name: 'KanbanView', component: KanbanView },
   { path: '/pricing', name: 'Pricing', component: Pricing },
   { path: '/auth/login', name: 'Login', component: AuthLogin },
   { path: '/auth/register', name: 'Register', component: AuthRegister },

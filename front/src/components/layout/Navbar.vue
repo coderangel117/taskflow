@@ -35,9 +35,9 @@ function changeView(view) {
   currentView.value = view
   // Ici, vous pouvez ajouter la navigation via Vue Router ou mettre à jour votre store global (par exemple, Pinia)
   // Par exemple, avec le router :
-  // router.push({
-  //   name: view === 'dashboard' ? 'MatrixView' : view === 'calendar' ? 'CalendarView' : 'KanbanView',
-  // })
+  router.push({
+    name: view === 'dashboard' ? 'MatrixView' : view === 'calendar' ? 'CalendarView' : 'KanbanView',
+  })
 }
 </script>
 
