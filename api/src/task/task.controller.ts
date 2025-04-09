@@ -14,14 +14,6 @@ import { TaskDto } from '../Dto/TaskDto';
 export class TaskController {
   constructor(private readonly taskService: TaskService) {}
 
-  @Post()
-  async create(
-    @Body()
-    data: TaskDto,
-  ) {
-    return this.taskService.create(data);
-  }
-
   @Get()
   async getTasks() {
     return this.taskService.getTasks();
@@ -35,6 +27,14 @@ export class TaskController {
   @Get('/user/:userId')
   async findByUser(@Param('userId') userId: string) {
     return this.taskService.findByUser(Number(userId));
+  }
+
+  @Post()
+  async create(
+    @Body()
+    data: TaskDto,
+  ) {
+    return this.taskService.create(data);
   }
 
   @Put('/:id')
