@@ -4,21 +4,23 @@ defineProps({
   description: String,
   date: String,
 })
+
+
 </script>
 
 <template>
   <div class="task-card">
     <div class="task-header">
-      <span class="task-title">Apprendre React</span>
+      <span class="task-title">{{ title }}</span>
       <div class="task-actions">
         <button class="action-btn btn-edit">✏️</button>
         <button class="action-btn btn-complete">✓</button>
         <button class="action-btn btn-delete">×</button>
       </div>
     </div>
-    <p class="task-description">Suivre le cours en ligne React pour débutants</p>
+    <p class="task-description">{{ description }}</p>
     <div class="task-meta">
-      <span class="task-date">15/03/2025</span>
+      <span class="task-date"> {{ date }}</span>
     </div>
   </div>
 </template>
@@ -94,6 +96,7 @@ defineProps({
   display: inline-block;
   padding: 0.25rem 0.5rem;
   background-color: var(--gray-500);
+  color: white;
   border-radius: 4px;
 }
 

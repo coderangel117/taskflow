@@ -187,7 +187,7 @@ h1 {
 }
 
 .toggle-btn {
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid var(--primary-color);
   padding: 10px 20px;
   cursor: pointer;
@@ -205,7 +205,7 @@ h1 {
 
 .toggle-btn.active {
   background-color: var(--primary-color);
-  color: white;
+  color: #9b9797;
 }
 
 .pricing-section {
