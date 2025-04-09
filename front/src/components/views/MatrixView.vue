@@ -15,20 +15,21 @@ import TaskForm from '@/components/TaskForm.vue'
         <div class="matrix">
           <div class="quadrant q1" id="q1">
             <div class="quadrant-header">Important & Urgent</div>
+            <TaskCard title="Task 1" description="description 1" date="16/03/2025" />
           </div>
 
           <div class="quadrant q2" id="q2">
             <div class="quadrant-header">Important & Non Urgent</div>
-            <TaskCard title="Task 1" description="description" date="15/03/2025" />
-            <TaskCard title="Task 2" description="description 1" date="16/03/2025" />
-            <TaskCard title="Task 3" description="description 2" date="17/03/2025" />
+            <TaskCard title="Task 2" description="description" date="15/03/2025" />
           </div>
 
           <div class="quadrant q3" id="q3">
             <div class="quadrant-header">Non Important & Urgent</div>
+            <TaskCard title="Task 3" description="description 2" date="17/03/2025" />
           </div>
           <div class="quadrant q4" id="q4">
             <div class="quadrant-header">Non Important & Non Urgent</div>
+            <TaskCard title="Task 4" description="description 3" date="18/03/2025" />
           </div>
         </div>
       </div>

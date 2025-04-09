@@ -1,4 +1,34 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TaskService } from '@/_services'
+import type { TaskModel } from '@/_models/Tasks.ts'
+import type Section from '@/_models/Section.ts'
+
+function CreateTask() {
+  const form = document.getElementById('task-form') as HTMLFormElement
+
+  const section: Section = form['urgency'].value + form['importance'].value
+
+  const task: TaskModel = {
+    title: form['task-title'].value,
+    description: form['task-description'].value,
+    dueDate: new Date(form['due-date'].value),
+    isCompleted: false,
+    userId: 3,
+    section: section,
+    status: 'pending',
+    history: [],
+  }
+
+  console.log(form)
+  console.log(task)
+  TaskService.addTask(task)
+}
+
+function SubmitTask(event: Event) {
+  event.preventDefault()
+  CreateTask()
+}
+</script>
 
 <template>
   <div class="task-form-container">
@@ -23,8 +53,8 @@
           <label for="importance">Importance *</label>
           <select id="importance" required>
             <option value="" disabled selected>Choisir...</option>
-            <option value="important">Important</option>
-            <option value="not-important">Non important</option>
+            <option value="Important">Important</option>
+            <option value="NonImportant">Non important</option>
           </select>
         </div>
 
@@ -32,8 +62,8 @@
           <label for="urgency">Urgence *</label>
           <select id="urgency" required>
             <option value="" disabled selected>Choisir...</option>
-            <option value="urgent">Urgent</option>
-            <option value="not-urgent">Non urgent</option>
+            <option value="Urgent">Urgent</option>
+            <option value="NonUrgent">Non urgent</option>
           </select>
         </div>
       </div>
@@ -43,7 +73,7 @@
         <input type="date" id="due-date" />
       </div>
 
-      <button type="submit" class="btn-submit">Ajouter à la matrice</button>
+      <button type="submit" class="btn-submit" v-on:click="SubmitTask">Ajouter à la matrice</button>
     </form>
   </div>
 </template>
