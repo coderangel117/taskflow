@@ -11,7 +11,7 @@
           <label for="password">Mot de passe</label>
           <input type="password" id="password" required />
         </div>
-        <button type="submit">Se connecter</button>
+        <button type="submit">S'inscrire</button>
       </form>
       <div class="register">
         Compte existant ?

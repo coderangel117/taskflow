@@ -104,7 +104,7 @@
         </div>
 
         <div class="cta-container">
-          <router-link to="/dashboard/eisenhower" class="cta-button">
+          <router-link to="/dashboard" class="cta-button">
             Essayer la matrice d'Eisenhower
           </router-link>
         </div>
