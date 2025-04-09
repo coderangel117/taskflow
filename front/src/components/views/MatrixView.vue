@@ -1,105 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import TaskCard from '@/components/TaskCard.vue'
-
-// Fonction pour configurer les actions sur une carte de tâche
-function setupTaskActions(taskCard: HTMLElement) {
-  // Bouton de suppression
-  const deleteBtn = taskCard.querySelector('.btn-delete') as HTMLElement | null
-  deleteBtn?.addEventListener('click', () => {
-    taskCard.remove()
-  })
-
-  // Bouton de complétion
-  const completeBtn = taskCard.querySelector('.btn-complete') as HTMLElement | null
-  completeBtn?.addEventListener('click', () => {
-    taskCard.classList.toggle('completed')
-  })
-
-  // Bouton d'édition
-  const editBtn = taskCard.querySelector('.btn-edit') as HTMLElement | null
-  editBtn?.addEventListener('click', () => {
-    alert("Fonctionnalité d'édition à implémenter")
-  })
-}
-
-onMounted(() => {
-  // Sélectionner le formulaire de tâche
-  const taskForm = document.getElementById('task-form') as HTMLFormElement | null
-  if (taskForm) {
-    taskForm.addEventListener('submit', (e: Event) => {
-      e.preventDefault()
-
-      // Récupérer les valeurs du formulaire en précisant leur type
-      const titleInput = document.getElementById('task-title') as HTMLInputElement | null
-      const descriptionInput = document.getElementById(
-        'task-description',
-      ) as HTMLInputElement | null
-      const importanceInput = document.getElementById('importance') as HTMLSelectElement | null
-      const urgencyInput = document.getElementById('urgency') as HTMLSelectElement | null
-      const dueDateInput = document.getElementById('due-date') as HTMLInputElement | null
-
-      if (!titleInput || !descriptionInput || !importanceInput || !urgencyInput || !dueDateInput)
-        return
-
-      const title = titleInput.value
-      const description = descriptionInput.value
-      const importance = importanceInput.value
-      const urgency = urgencyInput.value
-      const dueDate = dueDateInput.value
-
-      // Déterminer le quadrant approprié
-      let quadrantId: string | undefined
-      if (importance === 'important' && urgency === 'urgent') {
-        quadrantId = 'q1'
-        console.log('q1')
-      } else if (importance === 'important' && urgency === 'not-urgent') {
-        quadrantId = 'q2'
-      } else if (importance === 'not-important' && urgency === 'urgent') {
-        quadrantId = 'q3'
-      } else if (importance === 'not-important' && urgency === 'not-urgent') {
-        quadrantId = 'q4'
-      }
-
-      // Créer une nouvelle tâche si le quadrant et le titre sont valides
-      if (quadrantId && title) {
-        const quadrant = document.getElementById(quadrantId)
-        if (quadrant) {
-          const taskCard = document.createElement('div')
-          taskCard.className = 'task-card'
-
-          // Formater la date d'affichage
-          let displayDate = 'Non définie'
-          if (dueDate) {
-            const dateObj = new Date(dueDate)
-            displayDate = dateObj.toLocaleDateString('fr-FR')
-          }
-
-          // Construire le HTML de la tâche
-          taskCard.innerHTML = `<TaskCard title=${title} description="${description}" date="${displayDate}"></TaskCard>`
-
-          // Ajouter la tâche après l'en-tête du quadrant
-          const quadrantHeader = quadrant.querySelector('.quadrant-header')
-          if (quadrantHeader && quadrantHeader.parentNode) {
-            quadrant.insertBefore(taskCard, quadrantHeader.nextSibling)
-          } else {
-            quadrant.appendChild(taskCard)
-          }
-
-          // Réinitialiser le formulaire
-          taskForm.reset()
-
-          // Configurer les actions pour la nouvelle tâche
-          setupTaskActions(taskCard)
-        }
-      }
-    })
-  }
-
-  // Configurer les actions pour les tâches existantes
-  const existingTaskCards = document.querySelectorAll('.task-card')
-  existingTaskCards.forEach((card) => setupTaskActions(card as HTMLElement))
-})
+import TaskForm from '@/components/TaskForm.vue'
 </script>
 
 <template>
@@ -118,7 +19,9 @@ onMounted(() => {
 
           <div class="quadrant q2" id="q2">
             <div class="quadrant-header">Important & Non Urgent</div>
-            <TaskCard />
+            <TaskCard title="Task 1" description="description" date="15/03/2025" />
+            <TaskCard title="Task 2" description="description 1" date="16/03/2025" />
+            <TaskCard title="Task 3" description="description 2" date="17/03/2025" />
           </div>
 
           <div class="quadrant q3" id="q3">
@@ -158,56 +61,11 @@ onMounted(() => {
   }
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: var(--gray-700);
-}
-
-input[type='text'],
-textarea,
-select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--gray-300);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-input[type='text']:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px var(--primary-light);
-}
-
-.importance-urgency {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
 button {
   cursor: pointer;
   border: none;
   border-radius: 4px;
   transition: all 0.2s ease;
-}
-
-.btn-submit {
-  background-color: var(--primary);
-  color: white;
-  padding: 0.75rem 1rem;
-  font-weight: 600;
-  font-size: 1rem;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.btn-submit:hover {
-  background-color: var(--secondary);
 }
 
 /* Matrix Styles */
@@ -217,13 +75,6 @@ button {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-}
-
-.matrix-title {
-  margin-bottom: 1.5rem;
-  color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 0.5rem;
 }
 
 .matrix {
