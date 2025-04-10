@@ -1,11 +1,11 @@
-import type Section from './Section'
 import type TaskHistory from './TaskHistory'
 import type { TaskStatus } from './TaskStatus'
 
-export interface TaskModel {
+export interface Task {
+  id: number
   title: string
   description?: string
-  section: Section
+  section: 'UrgentImportant' | 'NonUrgentImportant' | 'UrgentNonImportant' | 'NonUrgentNonImportant'
   status: TaskStatus
   startDate?: Date
   endDate?: Date

@@ -1,7 +1,7 @@
 import Axios from '@/_services/caller.service'
-import type { TaskModel } from '@/_models/Tasks.ts'
+import type { Task } from '@/_models/Tasks.ts'
 
-const addTask = (task: TaskModel) => {
+const addTask = (task: Task) => {
   return Axios.post('/task', task)
 }
 
@@ -13,7 +13,7 @@ const getTaskById = (id: number) => {
   return Axios.get(`/task/${id}`)
 }
 
-const updateTask = (id: number, task: TaskModel) => {
+const updateTask = (id: number, task: Task) => {
   return Axios.put(`/task/${id}`, task)
 }
 
