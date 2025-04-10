@@ -1,11 +1,7 @@
 <script setup lang="ts">
 defineProps({
   title: String,
-  description: String,
-  date: String,
 })
-
-
 </script>
 
 <template>
@@ -14,13 +10,7 @@ defineProps({
       <span class="task-title">{{ title }}</span>
       <div class="task-actions">
         <button class="action-btn btn-edit">✏️</button>
-        <button class="action-btn btn-complete">✓</button>
-        <button class="action-btn btn-delete">×</button>
       </div>
-    </div>
-    <p class="task-description">{{ description }}</p>
-    <div class="task-meta">
-      <span class="task-date"> {{ date }}</span>
     </div>
   </div>
 </template>

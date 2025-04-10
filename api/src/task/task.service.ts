@@ -31,6 +31,10 @@ export class TaskService {
         description: true,
         status: true,
         section: true,
+        startDate: true,
+        endDate: true,
+        dueDate: true,
+        isCompleted: true,
         user: {
           select: {
             id: true,

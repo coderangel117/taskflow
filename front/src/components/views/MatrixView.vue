@@ -1,49 +1,26 @@
 <script setup lang="ts">
 import TaskForm from '@/components/TaskForm.vue'
-import { onMounted } from 'vue'
+import TaskCard from '@/components/TaskCard.vue'
+import { onMounted, onUpdated, ref } from 'vue'
 import { TaskService } from '@/_services'
-import type { TaskModel } from '@/_models/Tasks.ts'
+import type { Task } from '@/_models/Tasks.ts'
 
-let tasks: TaskModel[] = []
-onMounted(() => {
-  TaskService.getTasks().then((data) => {
-    tasks = data.data
-    console.log(tasks)
-    return tasks
-  })
+const tasks = ref<Task[]>([])
 
-  setTimeout(function () {
-    sortTasks(tasks)
-  }, 200)
+onUpdated(async () => {})
+
+onMounted(async () => {
+  try {
+    const response = await TaskService.getTasks()
+    tasks.value = response.data
+    console.log(response.data)
+  } catch (error) {
+    console.error('Erreur lors de la récupération des tâches :', error)
+  }
 })
 
-function sortTasks(tasks: TaskModel[]) {
-  const q1 = document.getElementsByClassName('q1')
-  const q2 = document.getElementsByClassName('q2')
-  // const q3 = document.getElementById('q3')
-  // const q4 = document.getElementById('q4')
-
-  // const header = document.getElementsByClassName('header')
-  // const foo = header.item(1)
-
-  for (const task of tasks) {
-    switch (task.section) {
-      case 'UrgentImportant':
-        console.log(q1)
-        // console.log('q1')
-        break
-      case 'NonUrgentImportant':
-        console.log(q2)
-        // console.log('q2')
-        break
-      case 'UrgentNonImportant':
-        // console.log('q3')
-        break
-      case 'NonUrgentNonImportant':
-        // console.log('q4')
-        break
-    }
-  }
+function getTasksForSection(section: Task['section']) {
+  return tasks.value.filter((t) => t.section === section)
 }
 </script>
 
@@ -59,21 +36,45 @@ function sortTasks(tasks: TaskModel[]) {
         <div class="matrix">
           <div class="quadrant" id="q1">
             <div class="quadrant-header q1">Important & Urgent</div>
-            <!--            <TaskCard title="Task 1" description="description 1" date="16/03/2025" />-->
+            <TaskCard
+              v-for="task in getTasksForSection('UrgentImportant')"
+              :key="task.id"
+              :title="task.title"
+              :description="task.description"
+              :date="task.dueDate"
+            />
           </div>
 
           <div class="quadrant" id="q2">
             <div class="quadrant-header q2">Important & Non Urgent</div>
-            <!--            <TaskCard title="Task 2" description="description" date="15/03/2025" />-->
+            <TaskCard
+              v-for="task in getTasksForSection('NonUrgentImportant')"
+              :key="task.id"
+              :title="task.title"
+              :description="task.description"
+              :date="task.dueDate"
+            />
           </div>
 
           <div class="quadrant" id="q3">
             <div class="quadrant-header q3">Non Important & Urgent</div>
-            <!--            <TaskCard title="Task 3" description="description 2" date="17/03/2025" />-->
+            <TaskCard
+              v-for="task in getTasksForSection('UrgentNonImportant')"
+              :key="task.id"
+              :title="task.title"
+              :description="task.description"
+              :date="task.dueDate"
+            />
           </div>
           <div class="quadrant" id="q4">
             <div class="quadrant-header q4">Non Important & Non Urgent</div>
-            <!--            <TaskCard title="Task 4" description="description 3" date="18/03/2025" />-->
+            <TaskCard
+              v-for="task in getTasksForSection('NonUrgentNonImportant')"
+              :key="task.id"
+              :title="task.title"
+              :description="task.description"
+              :date="task.dueDate"
+            />
           </div>
         </div>
       </div>

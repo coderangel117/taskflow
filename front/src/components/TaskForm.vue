@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { TaskService } from '@/_services'
-import type { TaskModel } from '@/_models/Tasks.ts'
-import type Section from '@/_models/Section.ts'
+import type { Task } from '@/_models/Tasks.ts'
 
 function CreateTask() {
   const form = document.getElementById('task-form') as HTMLFormElement
 
   const section: Section = form['urgency'].value + form['importance'].value
 
-  const task: TaskModel = {
+  const task: Task = {
     title: form['task-title'].value,
     description: form['task-description'].value,
     dueDate: new Date(form['due-date'].value),
@@ -19,14 +18,13 @@ function CreateTask() {
     history: [],
   }
 
-  console.log(form)
-  console.log(task)
   TaskService.addTask(task)
 }
 
 function SubmitTask(event: Event) {
-  event.preventDefault()
+  // event.preventDefault()
   CreateTask()
+  TaskService.getTasks()
 }
 </script>
 
