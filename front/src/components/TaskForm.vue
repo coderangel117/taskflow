@@ -8,11 +8,12 @@ function CreateTask() {
   const section = form['urgency'].value + form['importance'].value
 
   const task: Task = {
+    id: 1,
     title: form['task-title'].value,
     description: form['task-description'].value,
     dueDate: new Date(form['due-date'].value),
     isCompleted: false,
-    userId: 3,
+    userId: 3, // @TODO: get userId from the store
     section: section,
     status: 'pending',
     history: [],

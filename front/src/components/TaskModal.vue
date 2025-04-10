@@ -21,7 +21,7 @@ const originalTask = ref<Task | null>(null)
 
 // Formulaire réactif pour la tâche
 const taskForm = reactive({
-  id: null as number,
+  id: 0,
   title: '',
   description: '',
   dueDate: '',
@@ -38,7 +38,7 @@ const sections = [
 
 // Réinitialiser le formulaire
 const resetForm = () => {
-  taskForm.id = null
+  taskForm.id = 0
   taskForm.title = ''
   taskForm.description = ''
   taskForm.dueDate = ''
@@ -54,7 +54,7 @@ const fillFormWithTask = (task: Task) => {
   taskForm.id = task.id
   taskForm.title = task.title || ''
   taskForm.description = task.description || ''
-  taskForm.dueDate = task.dueDate?.toString || ''
+  taskForm.dueDate = task.dueDate?.toDateString() || ''
   taskForm.section = task.section || 'UrgentImportant'
 }
 
