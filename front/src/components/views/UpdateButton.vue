@@ -1,11 +1,6 @@
-<template>
-  <button class="edit-task-btn" @click="openModal">
-    <span class="icon">✏️</span> Modifier la tâche
-  </button>
-</template>
-
-<script setup>
+<script setup lang="ts">
 import { inject } from 'vue'
+import mitt from 'mitt'
 
 // Props pour recevoir les données de la tâche
 const props = defineProps({
@@ -19,15 +14,28 @@ const props = defineProps({
   },
 })
 
-// Injecter l'événement global pour ouvrir la modale
-const emitter = inject('emitter')
+type Events = {
+  'open-task-modal': any
+  // ajoute ici tous les events que tu vas utiliser
+}
 
+type Emitter = ReturnType<typeof mitt<Events>>
+
+const emitter = inject<Emitter>('emitter')
+
+if (!emitter) {
+  throw new Error('Emitter is not provided')
+}
 // Fonction pour ouvrir la modale avec les données de la tâche
 const openModal = () => {
   emitter.emit('open-task-modal', props.taskData)
 }
 </script>
-
+<template>
+  <button class="edit-task-btn" @click="openModal">
+    <span class="icon">✏️</span> Modifier la tâche
+  </button>
+</template>
 <style scoped>
 .edit-task-btn {
   display: flex;

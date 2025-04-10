@@ -2,13 +2,25 @@
 import TaskForm from '@/components/TaskForm.vue'
 import TaskCard from '@/components/TaskCard.vue'
 import TaskModal from '@/components/TaskModal.vue'
-
 import { inject, onMounted, ref } from 'vue'
 import { TaskService } from '@/_services'
 import type { Task } from '@/_models/Tasks.ts'
+import mitt from 'mitt'
 
 const tasks = ref<Task[]>([])
 
+type Events = {
+  'save-task': any
+  'delete-task': any
+  // ajoute ici tous les events que tu vas utiliser
+}
+
+type Emitter = ReturnType<typeof mitt<Events>>
+
+const emitter = inject<Emitter>('emitter')
+if (!emitter) {
+  throw new Error('Emitter is not provided')
+}
 onMounted(async () => {
   try {
     const response = await TaskService.getTasks()
@@ -22,10 +34,8 @@ function getTasksForSection(section: Task['section']) {
   return tasks.value.filter((t) => t.section === section)
 }
 
-const emitter = inject('emitter')
-
 // Gérer la sauvegarde d'une tâche
-const handleSaveTask = (updatedTask) => {
+const handleSaveTask = (updatedTask: Task) => {
   const index = tasks.value.findIndex((task) => task.id === updatedTask.id)
   if (index !== -1) {
     tasks.value[index] = updatedTask
@@ -41,7 +51,7 @@ const handleSaveTask = (updatedTask) => {
 }
 
 // Gérer la suppression d'une tâche
-const handleDeleteTask = (taskId) => {
+const handleDeleteTask = (taskId: number) => {
   const index = tasks.value.findIndex((task) => task.id === taskId)
   if (index !== -1) {
     tasks.value.splice(index, 1)
@@ -52,12 +62,11 @@ const handleDeleteTask = (taskId) => {
 onMounted(() => {
   emitter.on('save-task', handleSaveTask)
   emitter.on('delete-task', handleDeleteTask)
+})
 
-  // Nettoyage lors du démontage du composant
-  return () => {
-    emitter.off('save-task', handleSaveTask)
-    emitter.off('delete-task', handleDeleteTask)
-  }
+onBeforeUnmount(() => {
+  emitter.off('save-task', handleSaveTask)
+  emitter.off('delete-task', handleDeleteTask)
 })
 </script>
 <template>

@@ -2,8 +2,20 @@
 import { inject, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import type { Task } from '@/_models/Tasks.ts'
 import { TaskService } from '@/_services'
+import mitt from 'mitt'
 
-const emitter = inject('emitter')
+const emitter = inject<Emitter>('emitter')
+
+type Emitter = ReturnType<typeof mitt<Events>>
+type Events = {
+  'open-task-modal': any
+  'save-task': any
+  'delete-task': any
+}
+if (!emitter) {
+  throw new Error('Emitter is not provided')
+}
+
 const isOpen = ref(false)
 const originalTask = ref<Task | null>(null)
 
@@ -42,7 +54,7 @@ const fillFormWithTask = (task: Task) => {
   taskForm.id = task.id
   taskForm.title = task.title || ''
   taskForm.description = task.description || ''
-  taskForm.dueDate = task.dueDate || ''
+  taskForm.dueDate = task.dueDate?.toString || ''
   taskForm.section = task.section || 'UrgentImportant'
 }
 

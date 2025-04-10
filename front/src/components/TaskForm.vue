@@ -24,8 +24,7 @@ function CreateTask() {
   TaskService.addTask(task)
 }
 
-function SubmitTask(event: Event) {
-  // event.preventDefault()
+function SubmitTask() {
   CreateTask()
   TaskService.getTasks()
 }

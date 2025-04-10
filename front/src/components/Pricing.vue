@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ name: 'AppPricing' })
+
 // JavaScript pour la bascule entre les modèles de tarification
 import PricingFree from '@/components/icons/PricingFree.vue'
 import PricingPay from '@/components/icons/PricingPay.vue'

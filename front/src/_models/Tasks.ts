@@ -1,12 +1,11 @@
-import type TaskHistory from './TaskHistory'
-import type { TaskStatus } from './TaskStatus'
+import type { TaskHistory } from '@/_models/TaskHistory.ts'
 
 export interface Task {
-  id: number
+  id?: number
   title: string
   description?: string
   section: 'UrgentImportant' | 'NonUrgentImportant' | 'UrgentNonImportant' | 'NonUrgentNonImportant'
-  status: TaskStatus
+  status: 'pending' | 'completed' | 'archived'
   startDate?: Date
   endDate?: Date
   dueDate?: Date

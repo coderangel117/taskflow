@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import type { Task } from '@/_models/Tasks.ts'
+import mitt from 'mitt'
 
 const props = defineProps({
   title: String,
@@ -11,8 +12,18 @@ const props = defineProps({
 })
 
 // Injecter l'émetteur d'événements
-const emitter = inject('emitter')
+const emitter = inject<Emitter>('emitter')
 
+type Emitter = ReturnType<typeof mitt<Events>>
+
+type Events = {
+  'open-task-modal': any
+  // ajoute ici tous les events que tu vas utiliser
+}
+
+if (!emitter) {
+  throw new Error('Emitter is not provided')
+}
 // Fonction pour ouvrir la modale
 const openEditModal = () => {
   if (props.taskData) {

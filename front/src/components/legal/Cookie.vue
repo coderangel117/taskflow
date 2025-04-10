@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineOptions } from 'vue'
+
+defineOptions({
+  name: 'AppCookie',
+})
+</script>
 
 <template>
   Cookies Ce site utilise des cookies afin d'améliorer votre expérience et de proposer des contenus
