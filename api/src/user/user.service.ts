@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 
 @Injectable()
@@ -60,10 +60,13 @@ export class UserService {
     if (existingUser) {
       // User already exists
       console.log(existingUser);
-      return JSON.stringify({
-        StatusCode: HttpStatus.BAD_REQUEST,
-        message: 'User already exists',
-      });
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.BAD_REQUEST,
+          message: 'User already exists',
+        },
+        HttpStatus.BAD_REQUEST,
+      );
     }
     return this.prisma.user.create({
       data: {
