@@ -31,7 +31,7 @@ const openEditModal = () => {
     </div>
 
     <div v-if="date" class="task-meta">
-      <span class="task-date">{{ date }}</span>
+      <span class="task-date">{{ date.toString().slice(0, 10) }}</span>
     </div>
   </div>
 </template>

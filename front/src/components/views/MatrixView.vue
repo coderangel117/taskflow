@@ -29,6 +29,14 @@ const handleSaveTask = (updatedTask) => {
   const index = tasks.value.findIndex((task) => task.id === updatedTask.id)
   if (index !== -1) {
     tasks.value[index] = updatedTask
+    updatedTask.dueDate = updatedTask.dueDate ? new Date(updatedTask.dueDate).toISOString() : null
+    TaskService.updateTask(updatedTask.id, updatedTask)
+      .then(() => {
+        console.log('Tâche mise à jour avec succès')
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la mise à jour de la tâche :', error)
+      })
   }
 }
 
