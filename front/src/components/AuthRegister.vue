@@ -38,7 +38,6 @@ function Submit(event: Event) {
     password: password.value,
   }
 
-  console.log(user)
   UserService.register(user)
 }
 </script>

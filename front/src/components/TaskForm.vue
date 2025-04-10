@@ -17,7 +17,10 @@ function CreateTask() {
     status: 'pending',
     history: [],
   }
-
+  if (!task.title || task.title.trim() === '') {
+    alert('Le titre de la tâche est requis.')
+    return
+  }
   TaskService.addTask(task)
 }
 

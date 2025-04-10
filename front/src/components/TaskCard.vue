@@ -1,7 +1,24 @@
 <script setup lang="ts">
-defineProps({
+import { inject } from 'vue'
+import type { Task } from '@/_models/Tasks.ts'
+
+const props = defineProps({
   title: String,
+  description: String,
+  date: String,
+  id: [String, Number],
+  taskData: Object as () => Task,
 })
+
+// Injecter l'émetteur d'événements
+const emitter = inject('emitter')
+
+// Fonction pour ouvrir la modale
+const openEditModal = () => {
+  if (props.taskData) {
+    emitter.emit('open-task-modal', props.taskData)
+  }
+}
 </script>
 
 <template>
@@ -9,12 +26,15 @@ defineProps({
     <div class="task-header">
       <span class="task-title">{{ title }}</span>
       <div class="task-actions">
-        <button class="action-btn btn-edit">✏️</button>
+        <button class="action-btn btn-edit" @click="openEditModal">✏️</button>
       </div>
+    </div>
+
+    <div v-if="date" class="task-meta">
+      <span class="task-date">{{ date }}</span>
     </div>
   </div>
 </template>
-
 <style scoped>
 .task-card {
   background-color: white;
@@ -51,30 +71,6 @@ defineProps({
   border-radius: 4px;
 }
 
-.btn-delete {
-  background-color: var(--important-urgent);
-  color: white;
-}
-
-.btn-delete:hover {
-  background-color: #dc2626;
-}
-
-.btn-complete {
-  background-color: #10b981;
-  color: white;
-}
-
-.btn-complete:hover {
-  background-color: #059669;
-}
-
-.task-description {
-  font-size: 0.875rem;
-  color: var(--gray-500);
-  margin-bottom: 0.5rem;
-}
-
 .task-meta {
   display: flex;
   justify-content: space-between;
@@ -92,9 +88,5 @@ defineProps({
 
 .btn-edit:hover {
   background-color: var(--gray-500);
-}
-
-.completed .task-title {
-  text-decoration: line-through;
 }
 </style>

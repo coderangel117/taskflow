@@ -13,7 +13,6 @@ function SubmitForm(event: Event) {
   }
 
   // Simulate a login request
-  console.log('Login attempt with:', { email: email.value, password: password.value })
   // Here you would typically call your login API
 }
 </script>

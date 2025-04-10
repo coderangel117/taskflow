@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import TaskForm from '@/components/TaskForm.vue'
 import TaskCard from '@/components/TaskCard.vue'
-import { onMounted, ref } from 'vue'
+import TaskModal from '@/components/TaskModal.vue'
+
+import { inject, onMounted, ref } from 'vue'
 import { TaskService } from '@/_services'
 import type { Task } from '@/_models/Tasks.ts'
 
@@ -11,7 +13,6 @@ onMounted(async () => {
   try {
     const response = await TaskService.getTasks()
     tasks.value = response.data
-    console.log(response.data)
   } catch (error) {
     console.error('Erreur lors de la récupération des tâches :', error)
   }
@@ -20,8 +21,37 @@ onMounted(async () => {
 function getTasksForSection(section: Task['section']) {
   return tasks.value.filter((t) => t.section === section)
 }
-</script>
 
+const emitter = inject('emitter')
+
+// Gérer la sauvegarde d'une tâche
+const handleSaveTask = (updatedTask) => {
+  const index = tasks.value.findIndex((task) => task.id === updatedTask.id)
+  if (index !== -1) {
+    tasks.value[index] = updatedTask
+  }
+}
+
+// Gérer la suppression d'une tâche
+const handleDeleteTask = (taskId) => {
+  const index = tasks.value.findIndex((task) => task.id === taskId)
+  if (index !== -1) {
+    tasks.value.splice(index, 1)
+  }
+}
+
+// Configurer les écouteurs d'événements
+onMounted(() => {
+  emitter.on('save-task', handleSaveTask)
+  emitter.on('delete-task', handleDeleteTask)
+
+  // Nettoyage lors du démontage du composant
+  return () => {
+    emitter.off('save-task', handleSaveTask)
+    emitter.off('delete-task', handleDeleteTask)
+  }
+})
+</script>
 <template>
   <div class="container">
     <h1 class="page-title">Matrice d'Eisenhower</h1>
@@ -39,6 +69,8 @@ function getTasksForSection(section: Task['section']) {
               :title="task.title"
               :description="task.description"
               :date="task.dueDate"
+              :id="task.id"
+              :task-data="task"
             />
           </div>
 
@@ -50,6 +82,8 @@ function getTasksForSection(section: Task['section']) {
               :title="task.title"
               :description="task.description"
               :date="task.dueDate"
+              :id="task.id"
+              :task-data="task"
             />
           </div>
 
@@ -61,6 +95,8 @@ function getTasksForSection(section: Task['section']) {
               :title="task.title"
               :description="task.description"
               :date="task.dueDate"
+              :id="task.id"
+              :task-data="task"
             />
           </div>
           <div class="quadrant q4" id="q4">
@@ -71,11 +107,15 @@ function getTasksForSection(section: Task['section']) {
               :title="task.title"
               :description="task.description"
               :date="task.dueDate"
+              :id="task.id"
+              :task-data="task"
             />
           </div>
         </div>
       </div>
     </div>
+    <!-- Ajouter la modale une seule fois dans le composant parent -->
+    <TaskModal />
   </div>
 </template>
 
