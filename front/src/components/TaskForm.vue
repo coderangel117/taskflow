@@ -5,7 +5,7 @@ import type { Task } from '@/_models/Tasks.ts'
 function CreateTask() {
   const form = document.getElementById('task-form') as HTMLFormElement
 
-  const section: Section = form['urgency'].value + form['importance'].value
+  const section = form['urgency'].value + form['importance'].value
 
   const task: Task = {
     title: form['task-title'].value,

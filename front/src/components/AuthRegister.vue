@@ -1,17 +1,69 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { UserService } from '@/_services'
+import type { User } from '@/_models/User.ts'
+
+const email = ref<string>('')
+const password = ref<string>('')
+const confirmPassword = ref<string>('')
+
+const validateEmail = (email: string) => {
+  const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/
+  return re.test(email)
+}
+
+const validatePassword = (password, confirmPassword) => {
+  if (password.length < 8) {
+    return false
+  }
+  if (password.value !== confirmPassword.value) {
+    return false
+  }
+  return true
+}
+
+function Submit(event: Event) {
+  event.preventDefault()
+  email.value = 'fooo@foo.com'
+  password.value = '123'
+  confirmPassword.value = '123'
+
+  if (!validateEmail(email.value)) {
+    alert('Email invalide')
+    return
+  }
+  if (!validatePassword(password, confirmPassword)) {
+    return
+  }
+
+  const user: User = {
+    email: email.value,
+    password: password.value,
+  }
+
+  console.log(user)
+  UserService.addUser(user)
+}
+</script>
+
 <template>
   <div class="container">
     <div class="form-container">
       <h1>Inscription</h1>
-      <form>
+      <form class="register-form" id="register-form">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" required />
+          <input autofocus autocomplete="" type="email" id="email" required />
         </div>
         <div class="form-group">
           <label for="password">Mot de passe</label>
-          <input type="password" id="password" required />
+          <input type="password" autocomplete="off" id="password" required />
         </div>
-        <button type="submit">S'inscrire</button>
+        <div class="form-group">
+          <label for="password">Confirmation de mot de passe</label>
+          <input type="password" autocomplete="off" id="confirmPassword" required />
+        </div>
+        <button type="submit" v-on:click="Submit">S'inscrire</button>
       </form>
       <div class="register">
         Compte existant ?
@@ -142,5 +194,3 @@ button:hover {
   }
 }
 </style>
-
-<script setup lang="ts"></script>
