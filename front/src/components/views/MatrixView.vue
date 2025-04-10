@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import TaskForm from '@/components/TaskForm.vue'
 import TaskCard from '@/components/TaskCard.vue'
-import { onMounted, onUpdated, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { TaskService } from '@/_services'
 import type { Task } from '@/_models/Tasks.ts'
 
 const tasks = ref<Task[]>([])
-
-onUpdated(async () => {})
 
 onMounted(async () => {
   try {
@@ -32,9 +30,8 @@ function getTasksForSection(section: Task['section']) {
       <TaskForm />
       <!-- Matrice d'Eisenhower -->
       <div class="matrix-container">
-        <!--        <h2 class="matrix-title">Matrice d'Eisenhower</h2>-->
         <div class="matrix">
-          <div class="quadrant" id="q1">
+          <div class="quadrant q1" id="q1">
             <div class="quadrant-header q1">Important & Urgent</div>
             <TaskCard
               v-for="task in getTasksForSection('UrgentImportant')"
@@ -45,7 +42,7 @@ function getTasksForSection(section: Task['section']) {
             />
           </div>
 
-          <div class="quadrant" id="q2">
+          <div class="quadrant q2" id="q2">
             <div class="quadrant-header q2">Important & Non Urgent</div>
             <TaskCard
               v-for="task in getTasksForSection('NonUrgentImportant')"
@@ -56,7 +53,7 @@ function getTasksForSection(section: Task['section']) {
             />
           </div>
 
-          <div class="quadrant" id="q3">
+          <div class="quadrant q3" id="q3">
             <div class="quadrant-header q3">Non Important & Urgent</div>
             <TaskCard
               v-for="task in getTasksForSection('UrgentNonImportant')"
@@ -66,7 +63,7 @@ function getTasksForSection(section: Task['section']) {
               :date="task.dueDate"
             />
           </div>
-          <div class="quadrant" id="q4">
+          <div class="quadrant q4" id="q4">
             <div class="quadrant-header q4">Non Important & Non Urgent</div>
             <TaskCard
               v-for="task in getTasksForSection('NonUrgentNonImportant')"
@@ -84,7 +81,7 @@ function getTasksForSection(section: Task['section']) {
 
 <style scoped>
 .container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
@@ -128,15 +125,18 @@ button {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 1rem;
-  height: 600px;
+  height: 800px;
 }
 
 .quadrant {
   border-radius: 6px;
-  padding: 1rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+
+.task-card {
+  margin: 0.2rem 0.6rem;
 }
 
 .quadrant-header {
@@ -151,9 +151,8 @@ button {
   color: black;
 }
 
-#q1,
 .q1 {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.5);
   border: 1px solid var(--important-urgent);
 }
 
@@ -161,9 +160,8 @@ button {
   background-color: var(--important-urgent);
 }
 
-#q2,
 .q2 {
-  background-color: rgba(245, 158, 11, 0.1);
+  background-color: rgba(245, 158, 11, 0.5);
   border: 1px solid var(--important-not-urgent);
 }
 
@@ -171,9 +169,8 @@ button {
   background-color: var(--important-not-urgent);
 }
 
-#q3,
 .q3 {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgba(59, 130, 246, 0.5);
   border: 1px solid var(--not-important-urgent);
 }
 
@@ -181,9 +178,8 @@ button {
   background-color: var(--not-important-urgent);
 }
 
-#q4,
 .q4 {
-  background-color: rgba(107, 114, 128, 0.1);
+  background-color: rgba(107, 114, 128, 0.5);
   border: 1px solid var(--not-important-not-urgent);
 }
 

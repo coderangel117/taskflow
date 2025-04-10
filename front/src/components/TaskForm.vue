@@ -134,6 +134,18 @@ select:focus {
   box-shadow: 0 0 0 2px var(--primary-light);
 }
 
+input,
+textarea {
+  resize: none;
+  border: 1px solid grey;
+}
+
+input[type='date'] {
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
 .importance-urgency {
   display: grid;
   grid-template-columns: 1fr 1fr;
