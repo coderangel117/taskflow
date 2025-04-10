@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -57,6 +58,12 @@ export class UserService {
   async create(email: string, password: string) {
     const existingUser = await this.getUserByEmail(email);
 
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    console.log(password, hashedPassword);
+    password = hashedPassword;
+    // Check if the user already exists
     if (existingUser) {
       // User already exists
       console.log(existingUser);

@@ -24,9 +24,6 @@ const validatePassword = (password, confirmPassword) => {
 
 function Submit(event: Event) {
   event.preventDefault()
-  email.value = 'fooo@foo.com'
-  password.value = '123'
-  confirmPassword.value = '123'
 
   if (!validateEmail(email.value)) {
     alert('Email invalide')
@@ -53,15 +50,21 @@ function Submit(event: Event) {
       <form class="register-form" id="register-form">
         <div class="form-group">
           <label for="email">Email</label>
-          <input autofocus autocomplete="" type="email" id="email" required />
+          <input autofocus autocomplete="" v-model="email" type="email" id="email" required />
         </div>
         <div class="form-group">
           <label for="password">Mot de passe</label>
-          <input type="password" autocomplete="off" id="password" required />
+          <input type="password" autocomplete="off" v-model="password" id="password" required />
         </div>
         <div class="form-group">
           <label for="password">Confirmation de mot de passe</label>
-          <input type="password" autocomplete="off" id="confirmPassword" required />
+          <input
+            type="password"
+            autocomplete="off"
+            v-model="confirmPassword"
+            id="confirmPassword"
+            required
+          />
         </div>
         <button type="submit" v-on:click="Submit">S'inscrire</button>
       </form>
