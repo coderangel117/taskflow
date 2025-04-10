@@ -98,12 +98,19 @@ export class TaskService {
     return user;
   }
 
-  async update(id: number) {
+  async update(id: number, task: TaskDto) {
     return this.prisma.task.update({
       where: { id },
       data: {
-        title: '',
-        description: '',
+        title: task.title,
+        description: task.description,
+        section: task.section,
+        status: task.status,
+        startDate: task.startDate || null,
+        endDate: task.endDate || null,
+        dueDate: task.dueDate || null,
+        isCompleted: task.isCompleted,
+        userId: task.userId,
       },
     });
   }

@@ -38,8 +38,11 @@ export class TaskController {
   }
 
   @Put('/:id')
-  async updateTask(@Param('id') id: string) {
-    return this.taskService.update(Number(id));
+  async updateTask(@Param('id') id: string, @Body() data: TaskDto) {
+    if (data.dueDate) {
+      data.dueDate = new Date(data.dueDate);
+    }
+    return this.taskService.update(Number(id), data);
   }
 
   @Delete('/:id')
