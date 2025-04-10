@@ -1,6 +1,50 @@
 <script setup lang="ts">
-import TaskCard from '@/components/TaskCard.vue'
 import TaskForm from '@/components/TaskForm.vue'
+import { onMounted } from 'vue'
+import { TaskService } from '@/_services'
+import type { TaskModel } from '@/_models/Tasks.ts'
+
+let tasks: TaskModel[] = []
+onMounted(() => {
+  TaskService.getTasks().then((data) => {
+    tasks = data.data
+    console.log(tasks)
+    return tasks
+  })
+
+  setTimeout(function () {
+    sortTasks(tasks)
+  }, 200)
+})
+
+function sortTasks(tasks: TaskModel[]) {
+  const q1 = document.getElementsByClassName('q1')
+  const q2 = document.getElementsByClassName('q2')
+  // const q3 = document.getElementById('q3')
+  // const q4 = document.getElementById('q4')
+
+  // const header = document.getElementsByClassName('header')
+  // const foo = header.item(1)
+
+  for (const task of tasks) {
+    switch (task.section) {
+      case 'UrgentImportant':
+        console.log(q1)
+        // console.log('q1')
+        break
+      case 'NonUrgentImportant':
+        console.log(q2)
+        // console.log('q2')
+        break
+      case 'UrgentNonImportant':
+        // console.log('q3')
+        break
+      case 'NonUrgentNonImportant':
+        // console.log('q4')
+        break
+    }
+  }
+}
 </script>
 
 <template>
@@ -13,23 +57,23 @@ import TaskForm from '@/components/TaskForm.vue'
       <div class="matrix-container">
         <!--        <h2 class="matrix-title">Matrice d'Eisenhower</h2>-->
         <div class="matrix">
-          <div class="quadrant q1" id="q1">
-            <div class="quadrant-header">Important & Urgent</div>
-            <TaskCard title="Task 1" description="description 1" date="16/03/2025" />
+          <div class="quadrant" id="q1">
+            <div class="quadrant-header q1">Important & Urgent</div>
+            <!--            <TaskCard title="Task 1" description="description 1" date="16/03/2025" />-->
           </div>
 
-          <div class="quadrant q2" id="q2">
-            <div class="quadrant-header">Important & Non Urgent</div>
-            <TaskCard title="Task 2" description="description" date="15/03/2025" />
+          <div class="quadrant" id="q2">
+            <div class="quadrant-header q2">Important & Non Urgent</div>
+            <!--            <TaskCard title="Task 2" description="description" date="15/03/2025" />-->
           </div>
 
-          <div class="quadrant q3" id="q3">
-            <div class="quadrant-header">Non Important & Urgent</div>
-            <TaskCard title="Task 3" description="description 2" date="17/03/2025" />
+          <div class="quadrant" id="q3">
+            <div class="quadrant-header q3">Non Important & Urgent</div>
+            <!--            <TaskCard title="Task 3" description="description 2" date="17/03/2025" />-->
           </div>
-          <div class="quadrant q4" id="q4">
-            <div class="quadrant-header">Non Important & Non Urgent</div>
-            <TaskCard title="Task 4" description="description 3" date="18/03/2025" />
+          <div class="quadrant" id="q4">
+            <div class="quadrant-header q4">Non Important & Non Urgent</div>
+            <!--            <TaskCard title="Task 4" description="description 3" date="18/03/2025" />-->
           </div>
         </div>
       </div>
@@ -106,6 +150,7 @@ button {
   color: black;
 }
 
+#q1,
 .q1 {
   background-color: rgba(239, 68, 68, 0.1);
   border: 1px solid var(--important-urgent);
@@ -115,6 +160,7 @@ button {
   background-color: var(--important-urgent);
 }
 
+#q2,
 .q2 {
   background-color: rgba(245, 158, 11, 0.1);
   border: 1px solid var(--important-not-urgent);
@@ -124,6 +170,7 @@ button {
   background-color: var(--important-not-urgent);
 }
 
+#q3,
 .q3 {
   background-color: rgba(59, 130, 246, 0.1);
   border: 1px solid var(--not-important-urgent);
@@ -133,6 +180,7 @@ button {
   background-color: var(--not-important-urgent);
 }
 
+#q4,
 .q4 {
   background-color: rgba(107, 114, 128, 0.1);
   border: 1px solid var(--not-important-not-urgent);
