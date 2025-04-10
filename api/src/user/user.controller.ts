@@ -1,14 +1,5 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common';
+import { Controller, Delete, Get, Param, Patch } from '@nestjs/common';
 import { UserService } from './user.service';
-import { User } from '@prisma/client';
 
 @Controller('user')
 export class UserController {
@@ -27,18 +18,6 @@ export class UserController {
   @Get('/:id')
   async getUserById(@Param('id') id: string) {
     return this.userService.getUserById(Number(id));
-  }
-
-  @Post('')
-  async createUser(@Body() body: User) {
-    const { email, password } = body;
-    if (!email || !password) {
-      return {
-        statusCode: 400,
-        message: 'Email and password are required',
-      };
-    }
-    return this.userService.create(email, password);
   }
 
   @Patch('/:id')
