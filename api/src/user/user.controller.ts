@@ -1,15 +1,15 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
   Param,
   Patch,
-  UseGuards,
+  Post,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { User } from '@prisma/client';
 
-@UseGuards(JwtAuthGuard)
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -19,9 +19,26 @@ export class UserController {
     return this.userService.getUsers();
   }
 
+  @Get('/email/:email')
+  async getUserByEmail(@Param('email') email: string) {
+    return this.userService.getUserByEmail(email);
+  }
+
   @Get('/:id')
   async getUserById(@Param('id') id: string) {
     return this.userService.getUserById(Number(id));
+  }
+
+  @Post('')
+  async createUser(@Body() body: User) {
+    const { email, password } = body;
+    if (!email || !password) {
+      return {
+        statusCode: 400,
+        message: 'Email and password are required',
+      };
+    }
+    return this.userService.create(email, password);
   }
 
   @Patch('/:id')
