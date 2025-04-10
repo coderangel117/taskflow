@@ -39,7 +39,7 @@ function Submit(event: Event) {
   }
 
   console.log(user)
-  UserService.addUser(user)
+  UserService.register(user)
 }
 </script>
 

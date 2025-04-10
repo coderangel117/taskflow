@@ -1,8 +1,11 @@
 import Axios from '@/_services/caller.service'
 import type { User } from '@/_models/User.ts'
 
-const addUser = (user: User) => {
-  return Axios.post('/user', user)
+const register = (user: User) => {
+  return Axios.post('/register', user)
+}
+const login = (user: User) => {
+  return Axios.post('/login', user)
 }
 
 const getUsers = () => {
@@ -21,7 +24,8 @@ const deleteUser = (id: string) => {
   return Axios.delete(`/user/${id}`)
 }
 export const UserService = {
-  addUser,
+  register,
+  login,
   getUsers,
   getUser,
   updateUser,

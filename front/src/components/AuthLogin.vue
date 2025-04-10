@@ -3,6 +3,19 @@ import { ref } from 'vue'
 
 const email = ref('')
 const password = ref('')
+
+function SubmitForm(event: Event) {
+  event.preventDefault()
+
+  if (!email.value || !password.value) {
+    alert('Veuillez remplir tous les champs')
+    return
+  }
+
+  // Simulate a login request
+  console.log('Login attempt with:', { email: email.value, password: password.value })
+  // Here you would typically call your login API
+}
 </script>
 <template>
   <div class="container">
@@ -23,7 +36,7 @@ const password = ref('')
             type="password"
           />
         </div>
-        <button type="submit">Se connecter</button>
+        <button type="submit" v-on:click="SubmitForm">Se connecter</button>
       </form>
       <div class="forgot-password">
         <a href="#">Mot de passe oublié?</a>
