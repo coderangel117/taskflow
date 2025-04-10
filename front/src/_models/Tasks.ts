@@ -1,7 +1,7 @@
 import type { TaskHistory } from '@/_models/TaskHistory.ts'
 
 export interface Task {
-  id?: number
+  id: number
   title: string
   description?: string
   section: 'UrgentImportant' | 'NonUrgentImportant' | 'UrgentNonImportant' | 'NonUrgentNonImportant'

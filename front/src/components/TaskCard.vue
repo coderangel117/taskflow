@@ -6,7 +6,7 @@ import mitt from 'mitt'
 const props = defineProps({
   title: String,
   description: String,
-  date: String,
+  date: Date,
   id: [String, Number],
   taskData: Object as () => Task,
 })

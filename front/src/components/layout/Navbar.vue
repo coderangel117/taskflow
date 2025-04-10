@@ -34,9 +34,9 @@ defineOptions({
   name: 'AppNavbar',
 })
 
-const currentView = ref('matrix')
+const currentView = ref<string>('matrix')
 
-function changeView(view) {
+function changeView(view: string) {
   currentView.value = view
   // Ici, vous pouvez ajouter la navigation via Vue Router ou mettre à jour votre store global (par exemple, Pinia)
   // Par exemple, avec le router :

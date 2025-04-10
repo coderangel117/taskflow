@@ -21,7 +21,7 @@ const originalTask = ref<Task | null>(null)
 
 // Formulaire réactif pour la tâche
 const taskForm = reactive({
-  id: null as number | null,
+  id: null as number,
   title: '',
   description: '',
   dueDate: '',
@@ -68,13 +68,13 @@ const closeModal = () => {
 const saveTask = async () => {
   try {
     // Créer un objet de tâche mise à jour
-    const updatedTask = {
+    const updatedTask: Task = {
       id: taskForm.id,
       title: taskForm.title,
       description: taskForm.description,
       dueDate: taskForm.dueDate,
       section: taskForm.section,
-    } as Task
+    }
 
     // Si c'est une tâche existante
     if (taskForm.id) {

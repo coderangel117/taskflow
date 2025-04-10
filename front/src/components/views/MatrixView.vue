@@ -2,7 +2,7 @@
 import TaskForm from '@/components/TaskForm.vue'
 import TaskCard from '@/components/TaskCard.vue'
 import TaskModal from '@/components/TaskModal.vue'
-import { inject, onMounted, ref } from 'vue'
+import { inject, onBeforeUnmount, onMounted, ref } from 'vue'
 import { TaskService } from '@/_services'
 import type { Task } from '@/_models/Tasks.ts'
 import mitt from 'mitt'
@@ -39,7 +39,6 @@ const handleSaveTask = (updatedTask: Task) => {
   const index = tasks.value.findIndex((task) => task.id === updatedTask.id)
   if (index !== -1) {
     tasks.value[index] = updatedTask
-    updatedTask.dueDate = updatedTask.dueDate ? new Date(updatedTask.dueDate).toISOString() : null
     TaskService.updateTask(updatedTask.id, updatedTask)
       .then(() => {
         console.log('Tâche mise à jour avec succès')
