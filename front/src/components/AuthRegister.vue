@@ -12,11 +12,11 @@ const validateEmail = (email: string) => {
   return re.test(email)
 }
 
-const validatePassword = (password, confirmPassword) => {
+const validatePassword = (password: string, confirmPassword: string) => {
   if (password.length < 8) {
     return false
   }
-  if (password.value !== confirmPassword.value) {
+  if (password !== confirmPassword) {
     return false
   }
   return true
@@ -29,7 +29,7 @@ function Submit(event: Event) {
     alert('Email invalide')
     return
   }
-  if (!validatePassword(password, confirmPassword)) {
+  if (!validatePassword(password.value, confirmPassword.value)) {
     return
   }
 

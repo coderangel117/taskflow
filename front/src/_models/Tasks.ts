@@ -11,5 +11,5 @@ export interface Task {
   dueDate?: Date
   isCompleted: boolean
   userId: number
-  history: TaskHistory[]
+  history?: TaskHistory[]
 }

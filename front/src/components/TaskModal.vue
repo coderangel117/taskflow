@@ -24,7 +24,7 @@ const taskForm = reactive({
   id: 0,
   title: '',
   description: '',
-  dueDate: '',
+  dueDate: new Date(),
   section: 'UrgentImportant' as Task['section'],
 })
 
@@ -41,7 +41,7 @@ const resetForm = () => {
   taskForm.id = 0
   taskForm.title = ''
   taskForm.description = ''
-  taskForm.dueDate = ''
+  taskForm.dueDate = new Date()
   taskForm.section = 'UrgentImportant'
 }
 
@@ -54,7 +54,7 @@ const fillFormWithTask = (task: Task) => {
   taskForm.id = task.id
   taskForm.title = task.title || ''
   taskForm.description = task.description || ''
-  taskForm.dueDate = task.dueDate?.toDateString() || ''
+  taskForm.dueDate = task.dueDate || new Date()
   taskForm.section = task.section || 'UrgentImportant'
 }
 
@@ -74,6 +74,10 @@ const saveTask = async () => {
       description: taskForm.description,
       dueDate: taskForm.dueDate,
       section: taskForm.section,
+      status: 'pending',
+      userId: 1, // @TODO: get userId from the store
+      isCompleted: false,
+      history: [],
     }
 
     // Si c'est une tâche existante

@@ -34,25 +34,25 @@ const closeMobileMenu = () => {
 }
 
 // Fermer les menus déroulants quand on clique en dehors
-const handleClickOutside = (event) => {
+const handleClickOutside = (event: MouseEvent) => {
   const dropdown = document.querySelector('.dropdown')
   const mobileDropdown = document.querySelector('.mobile-dropdown')
 
-  if (dropdown && !dropdown.contains(event.target)) {
+  if (dropdown && !dropdown.contains(event.target as Node)) {
     featuresMenuOpen.value = false
   }
 
   if (
     mobileDropdown &&
-    !mobileDropdown.contains(event.target) &&
-    !document.querySelector('.mobile-menu-toggle').contains(event.target)
+    !mobileDropdown.contains(event.target as Node) &&
+    !document.querySelector('.mobile-menu-toggle')?.contains(event.target as Node)
   ) {
     mobileFeaturesMenuOpen.value = false
   }
 }
 
 // Fermer les menus déroulants quand on appuie sur Echap
-const handleEscKey = (event) => {
+const handleEscKey = (event: KeyboardEvent) => {
   if (event.key === 'Escape') {
     featuresMenuOpen.value = false
     mobileFeaturesMenuOpen.value = false

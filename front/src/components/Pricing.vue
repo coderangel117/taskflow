@@ -9,17 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleBtns = document.querySelectorAll('.toggle-btn')
 
   toggleBtns.forEach((btn) => {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', (event) => {
       // Mise à jour des boutons
       toggleBtns.forEach((b) => b.classList.remove('active'))
-      this.classList.add('active')
+      btn.classList.add('active')
 
       // Mise à jour des sections
-      const targetId = this.getAttribute('data-target')
+      const targetId = btn.getAttribute('data-target')
+      if (!targetId) return
       document.querySelectorAll('.pricing-section').forEach((section) => {
         section.classList.remove('active')
       })
-      document.getElementById(targetId + '-section').classList.add('active')
+      const targetSection = document.getElementById(`${targetId}-section`)
+      if (targetSection) {
+        targetSection.classList.add('active')
+      }
     })
   })
 
@@ -27,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const faqQuestions = document.querySelectorAll('.faq-question')
 
   faqQuestions.forEach((question) => {
-    question.addEventListener('click', function () {
-      this.classList.toggle('active')
+    question.addEventListener('click', () => {
+      question.classList.toggle('active')
     })
   })
 })
@@ -231,14 +235,6 @@ h1 {
   width: 100%;
   overflow-x: auto;
   margin-bottom: 30px;
-}
-
-.svg-pricing {
-  width: 100%;
-  max-width: 950px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
 .cta-container {
