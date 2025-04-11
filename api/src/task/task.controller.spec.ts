@@ -73,5 +73,25 @@ describe('TaskController', () => {
       expect(task).toEqual(result);
       expect(tasksService.getTaskById).toHaveBeenCalledWith(1);
     });
+
+    it('should throw an error if task not found', async () => {
+      const result: TaskDto = {
+        id: 99,
+        title: 'Test Task',
+        description: 'Test Description',
+        section: 'NonUrgentImportant',
+        status: 'pending',
+        startDate: new Date(),
+        endDate: new Date(),
+        dueDate: new Date(),
+        isCompleted: false,
+        userId: 1,
+        tags: [],
+        history: [],
+      };
+      tasksService.getTaskById = jest.fn().mockResolvedValue(result);
+      await tasksController.getTaskById('1');
+      expect(tasksService.getTaskById).toHaveBeenCalledWith(999);
+    });
   });
 });

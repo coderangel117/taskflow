@@ -84,18 +84,18 @@ export class TaskService {
   }
 
   async findByUser(userId: number) {
-    const user = this.prisma.task.findMany({
+    const tasks = this.prisma.task.findMany({
       where: {
         userId,
       },
     });
-    if (!user) {
+    if (!tasks) {
       return {
         statusCode: HttpStatus.NOT_FOUND,
         message: 'User not found',
       };
     }
-    return user;
+    return tasks;
   }
 
   async update(id: number, task: TaskDto) {
