@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AuthLogin from '@/components/AuthLogin.vue'
-import AuthRegister from '@/components/AuthRegister.vue'
+import AuthLogin from '@/components/Auth/AuthLogin.vue'
+import AuthRegister from '@/components/Auth/AuthRegister.vue'
 import MentionLegales from '@/views/legal/MentionLegales.vue'
 import Cookie from '@/views/legal/Cookie.vue'
 import ConditionUtilisation from '@/views/legal/ConditionUtilisation.vue'

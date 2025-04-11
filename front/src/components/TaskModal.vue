@@ -75,7 +75,7 @@ const saveTask = async () => {
       dueDate: taskForm.dueDate,
       section: taskForm.section,
       status: 'pending',
-      userId: 1, // @TODO: get userId from the store
+      userId: 3, // @TODO: get userId from the store
       isCompleted: false,
       history: [],
     }
