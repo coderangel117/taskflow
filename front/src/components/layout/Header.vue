@@ -9,23 +9,11 @@ const mobileMenuOpen = ref(false)
 const mobileFeaturesMenuOpen = ref(false)
 
 // Fonctions pour gérer les menus
-const toggleFeaturesMenu = () => {
-  featuresMenuOpen.value = !featuresMenuOpen.value
-}
-
-const closeFeaturesMenu = () => {
-  featuresMenuOpen.value = false
-}
-
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
   if (!mobileMenuOpen.value) {
     mobileFeaturesMenuOpen.value = false
   }
-}
-
-const toggleMobileFeaturesMenu = () => {
-  mobileFeaturesMenuOpen.value = !mobileFeaturesMenuOpen.value
 }
 
 const closeMobileMenu = () => {
@@ -84,34 +72,14 @@ onUnmounted(() => {
 
       <nav class="main-nav">
         <ul class="nav-list">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" @click.prevent="toggleFeaturesMenu">
-              Fonctionnalités
-              <span class="dropdown-icon" :class="{ 'dropdown-open': featuresMenuOpen }">▼</span>
-            </a>
-            <ul class="dropdown-menu" v-show="featuresMenuOpen">
-              <li>
-                <router-link to="/features/matrix" @click="closeFeaturesMenu">
-                  Méthode Eisenhower
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/features/kanban" @click="closeFeaturesMenu">
-                  Méthode Kanban
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/features/calendar" @click="closeFeaturesMenu">
-                  Vue Calendrier
-                </router-link>
-              </li>
-            </ul>
+          <li>
+            <router-link to="/features/matrix"> Vue Eisenhower</router-link>
           </li>
           <li>
-            <router-link to="/pricing">Tarifs</router-link>
+            <router-link to="/features/kanban"> Vue Kanban</router-link>
           </li>
           <li>
-            <router-link to="/contact">Contact</router-link>
+            <router-link to="/features/calendar"> Vue Calendrier</router-link>
           </li>
         </ul>
       </nav>
@@ -133,36 +101,24 @@ onUnmounted(() => {
         <li>
           <router-link to="/dashboard" @click="closeMobileMenu">Dashboard</router-link>
         </li>
-        <li class="mobile-dropdown">
-          <a href="#" @click.prevent="toggleMobileFeaturesMenu">
-            Fonctionnalités
-            <span class="dropdown-icon" :class="{ 'dropdown-open': mobileFeaturesMenuOpen }"
-              >▼</span
-            >
-          </a>
-          <ul class="mobile-dropdown-menu" v-show="mobileFeaturesMenuOpen">
-            <li>
-              <router-link to="/features/eisenhower" @click="closeMobileMenu">
-                Méthode Eisenhower
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/features/kanban" @click="closeMobileMenu">
-                Méthode Kanban
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/features/calendar" @click="closeMobileMenu">
-                Vue Calendrier
-              </router-link>
-            </li>
-          </ul>
+        <li>
+          <router-link to="/features/eisenhower" @click="closeMobileMenu">
+            Vue Eisenhower
+          </router-link>
         </li>
         <li>
-          <router-link to="/pricing" @click="closeMobileMenu">Tarifs</router-link>
+          <router-link to="/features/kanban" @click="closeMobileMenu"> Vue Kanban</router-link>
         </li>
         <li>
-          <router-link to="/contact" @click="closeMobileMenu">Contact</router-link>
+          <router-link to="/features/calendar" @click="closeMobileMenu">
+            Vue Calendrier
+          </router-link>
+        </li>
+        <li>
+          <!--          <router-link to="/pricing" @click="closeMobileMenu">Tarifs</router-link>-->
+        </li>
+        <li>
+          <!--          <router-link to="/contact" @click="closeMobileMenu">Contact</router-link>-->
         </li>
         <li class="mobile-auth">
           <router-link to="/login" class="mobile-login-btn" @click="closeMobileMenu"
