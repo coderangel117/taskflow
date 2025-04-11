@@ -5,6 +5,10 @@ const addTask = (task: Task) => {
   return Axios.post('/task', task)
 }
 
+const getTasksByUserId = (userId: number) => {
+  return Axios.get(`/task/user/${userId}`)
+}
+
 const getTasks = () => {
   return Axios.get('/task')
 }
@@ -23,6 +27,7 @@ const deleteTask = (id: number) => {
 
 export const TaskService = {
   addTask,
+  getTasksByUserId,
   getTasks,
   getTaskById,
   updateTask,

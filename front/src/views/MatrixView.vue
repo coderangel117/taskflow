@@ -23,7 +23,7 @@ if (!emitter) {
 }
 onMounted(async () => {
   try {
-    const response = await TaskService.getTasks()
+    const response = await TaskService.getTasksByUserId(3)
     tasks.value = response.data
   } catch (error) {
     console.error('Erreur lors de la récupération des tâches :', error)
