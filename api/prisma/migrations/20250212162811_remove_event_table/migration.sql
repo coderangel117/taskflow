@@ -11,7 +11,8 @@ ALTER TABLE `event` DROP FOREIGN KEY `Event_taskId_fkey`;
 ALTER TABLE `event` DROP FOREIGN KEY `Event_userId_fkey`;
 
 -- AlterTable
-ALTER TABLE `task` ADD COLUMN `endDate` DATETIME(3) NULL,
+ALTER TABLE `task`
+  ADD COLUMN `endDate` DATETIME(3) NULL,
     ADD COLUMN `startDate` DATETIME(3) NULL;
 
 -- DropTable
