@@ -1,6 +1,7 @@
 import { Section, TaskHistory, TaskStatus } from '@prisma/client';
 
 export class TaskDto {
+  id?: number;
   title: string;
   description?: string;
   section: Section;
