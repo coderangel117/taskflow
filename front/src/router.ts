@@ -17,6 +17,7 @@ const routes = [
   { path: '/', name: 'Home', component: AppHome },
   { path: '/dashboard', name: 'MatrixView', component: MatrixView },
   { path: '/kanban', name: 'KanbanView', component: KanbanView },
+  { path: '/calendar', name: 'CalendarView', component: CalendarFeature }, // @TODO: Create a CalendarView component
   { path: '/pricing', name: 'Pricing', component: Pricing },
   { path: '/auth/login', name: 'Login', component: AuthLogin },
   { path: '/auth/register', name: 'Register', component: AuthRegister },
@@ -26,7 +27,7 @@ const routes = [
   { path: '/legal/mentions', name: 'MentionLegales', component: MentionLegales },
   { path: '/legal/cookies', name: 'Cookies', component: Cookie },
   { path: '/legal/conditions', name: 'ConditionsUtilisation', component: ConditionUtilisation },
-  { path: '/legal/privacy', name: 'Privacy policies', component: PrivacyPolicy },
+  { path: '/legal/privacy', name: 'Confidentialité', component: PrivacyPolicy },
 ]
 
 const router = createRouter({

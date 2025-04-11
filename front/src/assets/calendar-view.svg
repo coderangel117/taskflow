@@ -1,143 +1,142 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 250">
-  <!-- Background -->
-  <rect width="350" height="250" fill="#f8f9fa" rx="5" ry="5"/>
-  
-  <!-- Header -->
-  <rect width="350" height="25" fill="#4361ee" rx="5" ry="5"/>
-  <text x="85" y="18" font-family="Arial" font-size="14" fill="white">Vue Calendrier - Septembre 2025</text>
-  
-  <!-- Calendar header -->
-  <rect x="10" y="30" width="330" height="20" fill="#e9ecef" rx="3" ry="3"/>
-  <text x="25" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">LUN</text>
-  <text x="73" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">MAR</text>
-  <text x="121" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">MER</text>
-  <text x="169" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">JEU</text>
-  <text x="217" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">VEN</text>
-  <text x="265" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">SAM</text>
-  <text x="313" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">DIM</text>
-  
-<!-- Calendar grid -->
+    <!-- Background -->
+    <rect width="350" height="250" fill="#f8f9fa" rx="5" ry="5"/>
+
+    <!-- Header -->
+    <rect width="350" height="25" fill="#4361ee" rx="5" ry="5"/>
+    <text x="85" y="18" font-family="Arial" font-size="14" fill="white">Vue Calendrier - Septembre 2025</text>
+
+    <!-- Calendar header -->
+    <rect x="10" y="30" width="330" height="20" fill="#e9ecef" rx="3" ry="3"/>
+    <text x="25" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">LUN</text>
+    <text x="73" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">MAR</text>
+    <text x="121" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">MER</text>
+    <text x="169" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">JEU</text>
+    <text x="217" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">VEN</text>
+    <text x="265" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">SAM</text>
+    <text x="313" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">DIM</text>
+
+    <!-- Calendar grid -->
     <!-- Row 1 -->
-  <rect x="10" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="15" y="65" font-family="Arial" font-size="10" fill="#777">1</text>
-  
-  <rect x="58" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="63" y="65" font-family="Arial" font-size="10" fill="#777">2</text>
-  
-  <rect x="106" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="111" y="65" font-family="Arial" font-size="10" fill="#777">3</text>
-  
-  <rect x="154" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="159" y="65" font-family="Arial" font-size="10" fill="#777">4</text>
-  
-  <rect x="202" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="207" y="65" font-family="Arial" font-size="10" fill="#777">5</text>
-  
-  <rect x="250" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="255" y="65" font-family="Arial" font-size="10" fill="#777">6</text>
-  
-  <rect x="298" y="50" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="303" y="65" font-family="Arial" font-size="10" fill="#777">7</text>
+    <rect x="10" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="15" y="65" font-family="Arial" font-size="10" fill="#777">1</text>
 
-  <!-- Row 2 -->
-  <rect x="10" y="87" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="15" y="97" font-family="Arial" font-size="10" fill="#777">8</text>
+    <rect x="58" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="63" y="65" font-family="Arial" font-size="10" fill="#777">2</text>
 
-  <rect x="58" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="63" y="97" font-family="Arial" font-size="10" fill="#777">9</text>  
+    <rect x="106" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="111" y="65" font-family="Arial" font-size="10" fill="#777">3</text>
 
-  <rect x="106" y="87" width="46" height="35" fill="#e8f4ff" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="111" y="97" font-family="Arial" font-size="10" fill="#777">10</text>
-  <rect x="111" y="99" width="35" height="12" fill="#4361ee" stroke="#ddd" rx="2" ry="2"/>
-  <text x="113" y="108" font-family="Arial" font-size="7" fill="white">Fin projet</text>
-  
-  
-  
-  <rect x="154" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="159" y="97" font-family="Arial" font-size="10" fill="#777">11</text>
-  
-  <rect x="202" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="207" y="97" font-family="Arial" font-size="10" fill="#777">12</text>
-  
-  <rect x="250" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="255" y="97" font-family="Arial" font-size="10" fill="#777">13</text>
-  
-  <rect x="298" y="87" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="303" y="97" font-family="Arial" font-size="10" fill="#777">14</text>
+    <rect x="154" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="159" y="65" font-family="Arial" font-size="10" fill="#777">4</text>
 
-  <!-- Row 3 -->
-  <rect x="10" y="124" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="15" y="134" font-family="Arial" font-size="10" fill="#777">15</text>
-  
-  <rect x="58" y="124" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="63" y="134" font-family="Arial" font-size="10" fill="#777">16</text>
-  
-  <rect x="106" y="124" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="111" y="134" font-family="Arial" font-size="10" fill="#777">17</text>
-  
-  <rect x="154" y="124" width="46" height="35" fill="#fff8e9" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="159" y="134" font-family="Arial" font-size="10" fill="#777">18</text>
-  <rect x="159" y="136" width="35" height="12" fill="#ffd166" stroke="#ddd" rx="2" ry="2"/>
-  <text x="161" y="144" font-family="Arial" font-size="7" fill="white">Fin projet</text>
-  
-  
-  <rect x="202" y="124" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="207" y="134" font-family="Arial" font-size="10" fill="#777">19</text>
-  
-  <rect x="250" y="124" width="46" height="35" fill="#e9f7f0" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="255" y="134" font-family="Arial" font-size="10" fill="#777">20</text>
-  
-  <rect x="255" y="136" width="35" height="12" fill="#06d6a0" stroke="#ddd" rx="2" ry="2"/>
-  <text x="257" y="144" font-family="Arial" font-size="7" fill="white">Formation</text>
-  
-  
-  <rect x="298" y="124" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="303" y="134" font-family="Arial" font-size="10" fill="#777">21</text>
-  
-  <!-- Row 4 -->
-  <rect x="10" y="161" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="15" y="171" font-family="Arial" font-size="10" fill="#777">22</text>
-  
-  <rect x="58" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="63" y="171" font-family="Arial" font-size="10" fill="#777">23</text>
-  
-  <rect x="106" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="111" y="171" font-family="Arial" font-size="10" fill="#777">24</text>
-  
-  <rect x="154" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="159" y="171" font-family="Arial" font-size="10" fill="#777">25</text>
-  
-  <rect x="202" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="207" y="171" font-family="Arial" font-size="10" fill="#777">26</text>
-  
-  <rect x="250" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="255" y="171" font-family="Arial" font-size="10" fill="#777">27</text>
-  
-  <rect x="298" y="161" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="303" y="171" font-family="Arial" font-size="10" fill="#777">28</text>
-  
+    <rect x="202" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="207" y="65" font-family="Arial" font-size="10" fill="#777">5</text>
+
+    <rect x="250" y="50" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="255" y="65" font-family="Arial" font-size="10" fill="#777">6</text>
+
+    <rect x="298" y="50" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="303" y="65" font-family="Arial" font-size="10" fill="#777">7</text>
+
+    <!-- Row 2 -->
+    <rect x="10" y="87" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="15" y="97" font-family="Arial" font-size="10" fill="#777">8</text>
+
+    <rect x="58" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="63" y="97" font-family="Arial" font-size="10" fill="#777">9</text>
+
+    <rect x="106" y="87" width="46" height="35" fill="#e8f4ff" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="111" y="97" font-family="Arial" font-size="10" fill="#777">10</text>
+    <rect x="111" y="99" width="35" height="12" fill="#4361ee" stroke="#ddd" rx="2" ry="2"/>
+    <text x="113" y="108" font-family="Arial" font-size="7" fill="white">Fin projet</text>
+
+
+    <rect x="154" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="159" y="97" font-family="Arial" font-size="10" fill="#777">11</text>
+
+    <rect x="202" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="207" y="97" font-family="Arial" font-size="10" fill="#777">12</text>
+
+    <rect x="250" y="87" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="255" y="97" font-family="Arial" font-size="10" fill="#777">13</text>
+
+    <rect x="298" y="87" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="303" y="97" font-family="Arial" font-size="10" fill="#777">14</text>
+
+    <!-- Row 3 -->
+    <rect x="10" y="124" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="15" y="134" font-family="Arial" font-size="10" fill="#777">15</text>
+
+    <rect x="58" y="124" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="63" y="134" font-family="Arial" font-size="10" fill="#777">16</text>
+
+    <rect x="106" y="124" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="111" y="134" font-family="Arial" font-size="10" fill="#777">17</text>
+
+    <rect x="154" y="124" width="46" height="35" fill="#fff8e9" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="159" y="134" font-family="Arial" font-size="10" fill="#777">18</text>
+    <rect x="159" y="136" width="35" height="12" fill="#ffd166" stroke="#ddd" rx="2" ry="2"/>
+    <text x="161" y="144" font-family="Arial" font-size="7" fill="white">Fin projet</text>
+
+
+    <rect x="202" y="124" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="207" y="134" font-family="Arial" font-size="10" fill="#777">19</text>
+
+    <rect x="250" y="124" width="46" height="35" fill="#e9f7f0" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="255" y="134" font-family="Arial" font-size="10" fill="#777">20</text>
+
+    <rect x="255" y="136" width="35" height="12" fill="#06d6a0" stroke="#ddd" rx="2" ry="2"/>
+    <text x="257" y="144" font-family="Arial" font-size="7" fill="white">Formation</text>
+
+
+    <rect x="298" y="124" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="303" y="134" font-family="Arial" font-size="10" fill="#777">21</text>
+
+    <!-- Row 4 -->
+    <rect x="10" y="161" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="15" y="171" font-family="Arial" font-size="10" fill="#777">22</text>
+
+    <rect x="58" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="63" y="171" font-family="Arial" font-size="10" fill="#777">23</text>
+
+    <rect x="106" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="111" y="171" font-family="Arial" font-size="10" fill="#777">24</text>
+
+    <rect x="154" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="159" y="171" font-family="Arial" font-size="10" fill="#777">25</text>
+
+    <rect x="202" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="207" y="171" font-family="Arial" font-size="10" fill="#777">26</text>
+
+    <rect x="250" y="161" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="255" y="171" font-family="Arial" font-size="10" fill="#777">27</text>
+
+    <rect x="298" y="161" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="303" y="171" font-family="Arial" font-size="10" fill="#777">28</text>
+
     <!-- Row 5 -->
-  <rect x="10" y="199" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="15" y="209" font-family="Arial" font-size="10" fill="#777">29</text>
-  
-  <rect x="58" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="63" y="209" font-family="Arial" font-size="10" fill="#777">30</text>
-  
-  <rect x="106" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="111" y="209" font-family="Arial" font-size="10" fill="#777">31</text>
-  
-  <rect x="154" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="159" y="209" font-family="Arial" font-size="10" fill="#777"></text>
-  
-  <rect x="202" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="207" y="209" font-family="Arial" font-size="10" fill="#777"></text>
-  
-  <rect x="250" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="255" y="209" font-family="Arial" font-size="10" fill="#777"></text>
-  
-  <rect x="298" y="199" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
-  <text x="303" y="209" font-family="Arial" font-size="10" fill="#777"></text>
-  <!-- Add new event button -->  
-  <circle cx="325" cy="220" r="10" fill="#4361ee"/>
-  <text x="325" y="225" font-family="Arial" font-size="16" fill="white" text-anchor="middle">+</text>
+    <rect x="10" y="199" width="46" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="15" y="209" font-family="Arial" font-size="10" fill="#777">29</text>
+
+    <rect x="58" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="63" y="209" font-family="Arial" font-size="10" fill="#777">30</text>
+
+    <rect x="106" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="111" y="209" font-family="Arial" font-size="10" fill="#777">31</text>
+
+    <rect x="154" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="159" y="209" font-family="Arial" font-size="10" fill="#777"></text>
+
+    <rect x="202" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="207" y="209" font-family="Arial" font-size="10" fill="#777"></text>
+
+    <rect x="250" y="199" width="46" height="35" fill="white" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="255" y="209" font-family="Arial" font-size="10" fill="#777"></text>
+
+    <rect x="298" y="199" width="42" height="35" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="1" ry="1"/>
+    <text x="303" y="209" font-family="Arial" font-size="10" fill="#777"></text>
+    <!-- Add new event button -->
+    <circle cx="325" cy="220" r="10" fill="#4361ee"/>
+    <text x="325" y="225" font-family="Arial" font-size="16" fill="white" text-anchor="middle">+</text>
 </svg>
